@@ -7,29 +7,61 @@ html, body {
 	margin: 0;
 }
 .parallax {
-    background-image: url("..\\assets\\6.jpg");
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
+	background-image: url("..\\assets\\1.jpg");
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    transform: translate3d(0px, 0px, 50px);
+    -webkit-transform: translate3d(0,0,0);
     background-repeat: no-repeat;
     background-size: cover;
 }
+.container {
+	position: relative;
+	height: 100%;
+	font-size: 60px;
+}
+.text {
+	position: absolute;
+	padding-top: 20%;
+	padding-left: 40%;
+	color: white;
+}
 .barrier {
-	background-color: orange;
+	background-color: rgb(0, 0, 255);
+	color: white;
 	font-size: 36px;
 }
+.barrier.top {
+	height: 100px;
+}
 .barrier.bottom {
-	height: 5000px;
+	height: 500px;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(window).scroll(function(e){
+	parallax();
+});
+function parallax() {
+	var scrolled = $(window).scrollTop();
+	console.log(scrolled);
+	$(".parallax").css("transform", "translate3d(0px, " + -(scrolled)*0.2 + "px, 50px)");
+}
+</script>
 </head>
 <body>
 
-<div class="barrier">
+<div class="barrier top">
 Scroll Up and Down this page to see the parallax scrolling effect.
 </div>
 
-<div class="parallax"></div>
+<div class="container">
+	<div class="parallax"></div>
+	<div class="text">PARALLAX</div>
+</div>
 
 <div class="barrier bottom">
 Scroll Up and Down this page to see the parallax scrolling effect.
