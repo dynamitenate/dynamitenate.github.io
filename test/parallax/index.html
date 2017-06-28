@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+	height: 100%;
+	margin: 0;
+}
+.wholepage {
+	height: 100%;
+}
+.parallax {
+    /* The image used */
+    background-image: url(".\\assets\\6.jpg");
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.barrier {
+	background-color: red;
+	font-size: 36px;
+}
+.barrier.bottom {
+	height: 5000px;
+}
+</style>
+</head>
+<body>
+
+<div class="barrier">
+Scroll Up and Down this page to see the parallax scrolling effect.
+</div>
+
+<div class="wholepage">
+<div class="parallax"></div>
+</div>
+
+<div class="barrier bottom">
+Scroll Up and Down this page to see the parallax scrolling effect.
+This div is just here to enable scrolling.
+Tip: Try to remove the background-attachment property to remove the scrolling effect.
+</div>
+
+</body>
+</html>
