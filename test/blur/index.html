@@ -26,6 +26,11 @@ html, body {
 	transform: translate(-50%, -50%);
 	font-size: 30pt;
 }
+.text.gradient {
+	background: linear-gradient(to bottom, black, goldenrod);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -34,19 +39,20 @@ $(window).scroll(function(e){
 });
 function blurify() {
 	var scrolled = $(window).scrollTop();
-	$(".container").css("-webkit-filter", "blur(" + scrolled/10 + "px)");
-	$(".container").css("filter", "blur(" + scrolled/10 + "px)");
+	scrolled /= 50;
+	$(".container").css("-webkit-filter", "blur(" + scrolled + "px)");
+	$(".container").css("filter", "blur(" + scrolled + "px)");
 }
 </script>
 </head>
 <body>
 <div class="barrier">
 	<div class="text">
-		\/ Scroll down to blur \/
+		&#8595; Scroll down to blur &#8595;
 	</div>
 </div>
 <div class="container">
-	<div class="text">
+	<div class="text gradient">
 		Sample Text<br>
 		Sample Text<br>
 		Sample Text<br>
@@ -67,7 +73,7 @@ function blurify() {
 </div>
 <div class="barrier">
 	<div class="text">
-		/\ Scroll up to unblur /\
+		&#8593; Scroll up to unblur &#8593;
 	</div>
 </div>
 </body>
