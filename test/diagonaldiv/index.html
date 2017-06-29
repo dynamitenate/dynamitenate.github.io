@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.container {
+	position: relative;
+	height: 50pt;
+	background: goldenrod;
+}
+.container.diagonal {
+	height: 75pt;
+	background-image: linear-gradient(to bottom right, goldenrod, goldenrod 49.75%, black 50.25%, black);
+}
+.text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 30pt;
+}
+.text.white{
+	color: white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="text">
+		Top section text
+	</div>
+</div>
+<div class="container diagonal">
+	<div class="text white">
+		Goldenrod-Black section text
+	</div>
+</div>
+</body>
+</html>
