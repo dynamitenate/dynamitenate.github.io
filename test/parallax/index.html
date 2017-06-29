@@ -50,7 +50,6 @@ $(window).scroll(function(e){
 });
 function parallax() {
 	var scrolled = $(window).scrollTop();
-	console.log(scrolled);
 	$(".parallax").css("transform", "translate3d(0px, " + -(scrolled)*0.1 + "px, 50px)");
 }
 </script>
