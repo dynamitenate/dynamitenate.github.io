@@ -7,19 +7,28 @@ html, body {
 	margin: 0;
 }
 .parallax {
-	background-image: url("..\\assets\\1.jpg");
     position: absolute;
     width: 100%;
-    height: 120%;
+    height: 300%;
     z-index: -1;
-    transform: translate3d(0px, 0px, 50px);
-    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0px, 0px, 0px);
     background-repeat: no-repeat;
+}
+.parallax.img1{
+	background-image: url("..\\assets\\1.jpg");
+}
+.parallax.img2{
+	background-image: url("..\\assets\\2.jpg");
+}
+.parallax.img3{
+	background-image: url("..\\assets\\3.jpg");
+	
 }
 .container {
 	position: relative;
 	height: 100%;
 	font-size: 60px;
+	overflow: hidden;
 }
 .text {
 	position: absolute;
@@ -27,20 +36,17 @@ html, body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 15px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
 	background-color: rgba(0, 0, 0, 0.7);
 	color: rgba(255, 255, 255, 0.8);
 }
 .barrier {
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.8);
 	color: goldenrod;
 	font-size: 36px;
-}
-.barrier.top {
-	text-align: center;
-	height: 60px;
-}
-.barrier.bottom {
-	height: 5000px;
+	height: 100%;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -49,29 +55,37 @@ $(window).scroll(function(e){
 	parallax();
 });
 function parallax() {
-	$(".parallax").css("transform", "translate3d(0px, " + -($(window).scrollTop())*0.1 + "px, 50px)");
+	var scrolled = $(window).scrollTop();
+	$(".parallax").css("-webkit-transform", "translate3d(0px, " + -(scrolled)*0.2 + "px, 50px)");
 }
 </script>
 </head>
 <body>
 
-<div class="barrier top">
-Scroll Up and Down this page to see the parallax scrolling effect.
-</div>
-
 <div class="container">
-	<div class="parallax"></div>
+	<div class="parallax img1"></div>
 	<div class="text">
 		PARALLAX
 	</div>
 </div>
 
+<div class="container">
+	<div class="parallax img2"></div>
+	<div class="text">
+		IS
+	</div>
+</div>
 
+<div class="container">
+	<div class="parallax img3"></div>
+	<div class="text">
+		SWEET
+	</div>
+</div>
 
-<div class="barrier bottom">
+<div class="barrier">
 Scroll Up and Down this page to see the parallax scrolling effect.
 This div is just here to enable scrolling.
-Tip: Try to remove the background-attachment property to remove the scrolling effect.
 </div>
 
 </body>
