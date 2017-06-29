@@ -12,7 +12,7 @@ html, body {
     height: 300%;
     z-index: -1;
     -webkit-transform: translate3d(0px, 0px, 0px);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 .parallax.img1{
 	background-image: url("..\\assets\\1.jpg");
@@ -55,8 +55,7 @@ $(window).scroll(function(e){
 	parallax();
 });
 function parallax() {
-	var scrolled = $(window).scrollTop();
-	$(".parallax").css("-webkit-transform", "translate3d(0px, " + -(scrolled)*0.2 + "px, 50px)");
+	$(".parallax").css("-webkit-transform", "translate3d(0px, " + -($(window).scrollTop())*0.2 + "px, 50px)");
 }
 </script>
 </head>
