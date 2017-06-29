@@ -49,8 +49,7 @@ $(window).scroll(function(e){
 	parallax();
 });
 function parallax() {
-	var scrolled = $(window).scrollTop();
-	$(".parallax").css("transform", "translate3d(0px, " + -(scrolled)*0.1 + "px, 50px)");
+	$(".parallax").css("transform", "translate3d(0px, " + -($(window).scrollTop())*0.1 + "px, 50px)");
 }
 </script>
 </head>
