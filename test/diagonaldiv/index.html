@@ -8,14 +8,34 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
-.container {
+.solid{
 	position: relative;
-	height: 50pt;
-	background: goldenrod;
+	height: 100pt;
 }
-.container.diagonal {
+.slash{
+	position: relative;
 	height: 75pt;
-	background-image: linear-gradient(to bottom right, goldenrod, goldenrod 49.75%, black 50.25%, black);
+}
+.solid.red {
+	background: red;
+}
+.solid.orange {
+	background: orange;
+}
+.solid.yellow {
+	background: yellow;
+}
+.solid.green {
+	background: green;
+}
+.slash.red-orange {
+	background-image: linear-gradient(to bottom right, red, red 49.5%, orangered 50%, orange 50.5%, orange);
+}
+.slash.orange-yellow {
+	background-image: linear-gradient(to bottom left, orange, orange 49.5%, gold 50%, yellow 50.5%, yellow);
+}
+.slash.yellow-green {
+	background-image: linear-gradient(to bottom right, yellow, yellow 49.5%, greenyellow 50%, green 50.5%, green);
 }
 .text {
 	position: absolute;
@@ -24,20 +44,42 @@ html, body {
 	transform: translate(-50%, -50%);
 	font-size: 30pt;
 }
-.text.white{
-	color: white;
-}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="solid red">
 	<div class="text">
-		Top section text
+		Red section text
 	</div>
 </div>
-<div class="container diagonal">
-	<div class="text white">
-		Goldenrod-Black section text
+<div class="slash red-orange">
+	<div class="text">
+		Red-Orange section text
+	</div>
+</div>
+<div class="solid orange">
+	<div class="text">
+		Orange section text
+	</div>
+</div>
+<div class="slash orange-yellow">
+	<div class="text">
+		Orange-Yellow section text
+	</div>
+</div>
+<div class="solid yellow">
+	<div class="text">
+		Yellow section text
+	</div>
+</div>
+<div class="slash yellow-green">
+	<div class="text">
+		Yellow-Green section text
+	</div>
+</div>
+<div class="solid green">
+	<div class="text">
+		Green section text
 	</div>
 </div>
 </body>
