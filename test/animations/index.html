@@ -3,10 +3,83 @@
 <head>
 <title>Animations</title>
 <style>
-
+html, body {
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.container {
+	display: inline-block;
+	position: relative;
+	height: 200px;
+	width: 200px;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 2px;
+}
+.container.wide {
+	width: 400px;
+}
+.wraptext {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: lightgray;
+	font-size: 30pt;
+}
+.wrapbox {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	transform: translate(-50%, -50%);
+}
+.box {
+	border-radius: 5px;
+	height: 40px;
+	width: 80px;
+	background: teal;
+	-webkit-transition: all 0.5s;
+}
+#container1:hover #boxId {
+	height: 80px;
+	width: 160px;
+}
+.wrapcircle {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	transform: translate(-50%, -50%);
+}
+.circle {
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	background: teal;
+	-webkit-transition: all 1s ease;
+}
+#container2:hover #circleId {
+	-webkit-transform: translateX(200px);
+}
 </style>
 </head>
 <body>
-Hello
+<div id="container1" class="container">
+	<div class="wraptext">
+		SCALE
+	</div>
+	<div class="wrapbox">
+		<div id="boxId" class="box"></div>
+	</div>
+</div>
+<div id="container2" class="container wide">
+	<div class="wraptext">
+		TRANSLATE
+	</div>
+	<div class="wrapcircle">
+		<div id="circleId" class="circle"></div>
+	</div>
+</div>
 </body>
 </html>
