@@ -5,9 +5,16 @@
 <style>
 html, body {
 	height: 100%;
+	width: 100%;
 	border: 0;
 	padding: 0;
 	margin: 0;
+}
+.centerstage {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-308px, -50%);
 }
 .container {
 	display: inline-block;
@@ -18,16 +25,13 @@ html, body {
 	border-color: lightgray;
 	border-width: 2px;
 }
-.container.wide {
-	width: 400px;
-}
 .wraptext {
 	position: absolute;
 	top: 15%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: lightgray;
-	font-size: 30pt;
+	font-size: 24pt;
 }
 .wrapbox {
 	position: absolute;
@@ -38,19 +42,21 @@ html, body {
 .box {
 	border-radius: 5px;
 	height: 40px;
-	width: 80px;
+	width: 40px;
 	background: teal;
 	-webkit-transition: all 0.5s;
 }
 #container1:hover #boxId {
 	height: 80px;
 	width: 160px;
+	background: midnightblue;
 }
 .wrapcircle {
 	position: absolute;
 	top: 100px;
-	left: 100px;
+	left: 50px;
 	transform: translate(-50%, -50%);
+	-webkit-transition: all 1s ease;
 }
 .circle {
 	border-radius: 50%;
@@ -59,26 +65,93 @@ html, body {
 	background: teal;
 	-webkit-transition: all 1s ease;
 }
+#container2:hover #wrapcircleId {
+	left: 150px;
+}
 #container2:hover #circleId {
-	-webkit-transform: translateX(200px);
+	background: midnightblue;
+}
+.triangle {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 20px 0 20px 34.6px;
+	border-color: transparent transparent transparent teal;
+	-webkit-transition: all 1s ease;
+}
+#container3:hover #triangleId {
+	-webkit-transform: rotate(-360deg);
+	border-color: transparent transparent transparent midnightblue;
+}
+.containerwide {
+	display: block;
+	position: relative;
+	height: 200px;
+	width: 616px;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 2px;
+}
+.wrapdroplet {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	transform: translate(-50%, -50%);
+	-webkit-transition: all 2s ease-in-out;
+}
+.droplet {
+	background: teal;
+	border-radius: 2% 50%;
+	height: 100px;
+	width: 100px;
+	margin: 100px;
+	-webkit-transition: all 2s ease-in-out;
+}
+#containerBig:hover #wrapdropletId {
+	left: 520px;
+}
+#containerBig:hover #dropletId {
+	height: 50px;
+	width: 50px;
+	background: mediumaquamarine;
+	-webkit-transform: rotate(90deg);
 }
 </style>
 </head>
 <body>
-<div id="container1" class="container">
-	<div class="wraptext">
-		SCALE
+<div class="centerstage">
+	<div id="container1" class="container">
+		<div class="wraptext">
+			SCALE
+		</div>
+		<div class="wrapbox">
+			<div id="boxId" class="box"></div>
+		</div>
 	</div>
-	<div class="wrapbox">
-		<div id="boxId" class="box"></div>
+	<div id="container2" class="container">
+		<div class="wraptext">
+			TRANSLATE
+		</div>
+		<div id="wrapcircleId" class="wrapcircle">
+			<div id="circleId" class="circle"></div>
+		</div>
 	</div>
-</div>
-<div id="container2" class="container wide">
-	<div class="wraptext">
-		TRANSLATE
+	<div id="container3" class="container">
+		<div class="wraptext">
+			ROTATE
+		</div>
+		<div class="wrapbox">
+			<div id="triangleId" class="triangle"></div>
+		</div>
 	</div>
-	<div class="wrapcircle">
-		<div id="circleId" class="circle"></div>
+	<br>
+	<div id="containerBig" class="containerwide">
+		<div class="wraptext">
+			ALL 3
+		</div>
+		<div id="wrapdropletId" class="wrapdroplet">
+			<div id="dropletId" class="droplet"></div>
+		</div>
 	</div>
 </div>
 </body>
