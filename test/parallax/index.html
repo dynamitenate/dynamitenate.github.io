@@ -54,16 +54,13 @@ html, body {
 	height: 100%;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-$(window).scroll(function(e){
-	parallax();
-});
+window.addEventListener("scroll", parallax);
 function parallax() {
-	var scrolledDelta = $(window).scrollTop()*0.3;
-	$(".parallax.img1").css("-webkit-transform", "translate3d(0px, " + (scrolledDelta) + "px, 0px)");
-	$(".parallax.img2").css("-webkit-transform", "translate3d(0px, " + (scrolledDelta - 500) + "px, 0px)");
-	$(".parallax.img3").css("-webkit-transform", "translate3d(0px, " + (scrolledDelta - 1000) + "px, 0px)");
+	var scrolledDelta = document.body.scrollTop*0.3;
+	document.querySelector(".parallax.img1").style["-webkit-transform"] = "translate3d(0px, " + (scrolledDelta) + "px, 0px)";
+	document.querySelector(".parallax.img2").style["-webkit-transform"] = "translate3d(0px, " + (scrolledDelta - 500) + "px, 0px)";
+	document.querySelector(".parallax.img3").style["-webkit-transform"] = "translate3d(0px, " + (scrolledDelta - 1000) + "px, 0px)";
 }
 </script>
 </head>
