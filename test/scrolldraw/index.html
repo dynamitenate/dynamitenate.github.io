@@ -22,6 +22,7 @@ html, body {
 	width: 150px;
 	height: 250px;
 	border: 1px;
+	padding: 5px;
 	border-style: solid;
 }
 </style>
@@ -36,6 +37,9 @@ var a2Id;
 var n2Id;
 var r1Id;
 var a3Id;
+var i1Id;
+var n3Id;
+var e1Id;
 var lengthN1;
 var lengthA1;
 var lengthT1;
@@ -44,6 +48,9 @@ var lengthA2;
 var lengthN2;
 var lengthR1;
 var lengthA3;
+var lengthI1;
+var lengthN3;
+var lengthE1;
 function initScrollers() {
 	if (!isIE && !isEdge) {
 		n1Id = document.getElementById("n1Id");
@@ -54,6 +61,9 @@ function initScrollers() {
 		n2Id = document.getElementById("n2Id");
 		r1Id = document.getElementById("r1Id");
 		a3Id = document.getElementById("a3Id");
+		i1Id = document.getElementById("i1Id");
+		n3Id = document.getElementById("n3Id");
+		e1Id = document.getElementById("e1Id");
 		lengthN1 = n1Id.getTotalLength();
 		lengthA1 = a1Id.getTotalLength();
 		lengthT1 = t1Id.getTotalLength();
@@ -62,6 +72,9 @@ function initScrollers() {
 		lengthN2 = n2Id.getTotalLength();
 		lengthR1 = r1Id.getTotalLength() - 400;
 		lengthA3 = a3Id.getTotalLength();
+		lengthI1 = i1Id.getTotalLength() - 400;
+		lengthN3 = n3Id.getTotalLength();
+		lengthE1 = e1Id.getTotalLength();
 		n1Id.style.strokeDasharray = lengthN1;
 		a1Id.style.strokeDasharray = lengthA1;
 		t1Id.style.strokeDasharray = lengthT1;
@@ -70,6 +83,9 @@ function initScrollers() {
 		n2Id.style.strokeDasharray = lengthN2;
 		r1Id.style.strokeDasharray = lengthR1;
 		a3Id.style.strokeDasharray = lengthA3;
+		i1Id.style.strokeDasharray = lengthI1;
+		n3Id.style.strokeDasharray = lengthN3;
+		e1Id.style.strokeDasharray = lengthE1;
 		window.addEventListener("scroll", scroller);
 	}
 }
@@ -86,6 +102,9 @@ function scroller() {
 	var drawN2 = lengthN2 * scrollpercent;
 	var drawR1 = lengthR1 * scrollpercent;
 	var drawA3 = lengthA3 * scrollpercent;
+	var drawI1 = lengthI1 * scrollpercent;
+	var drawN3 = lengthN3 * scrollpercent;
+	var drawE1 = lengthE1 * scrollpercent;
 	n1Id.style.strokeDashoffset = drawN1;
 	a1Id.style.strokeDashoffset = drawA1;
 	t1Id.style.strokeDashoffset = drawT1;
@@ -94,6 +113,9 @@ function scroller() {
 	n2Id.style.strokeDashoffset = drawN2;
 	r1Id.style.strokeDashoffset = drawR1;
 	a3Id.style.strokeDashoffset = drawA3;
+	i1Id.style.strokeDashoffset = drawI1;
+	n3Id.style.strokeDashoffset = drawN3;
+	e1Id.style.strokeDashoffset = drawE1;
 }
 </script>
 </head>
@@ -196,6 +218,47 @@ function scroller() {
 			L112,125
 			"></path>
 			A
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="i1Id" d="
+			M75,15
+			L0,15
+			M75,15
+			L150,15
+			M75,0
+			L75,125
+			M75,250
+			L75,125
+			M75,235
+			L0,235
+			M75,235
+			L150,235
+			"></path>
+			I
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="n3Id" d="
+			M15,250
+			L15,0
+			L135,250
+			L135,0
+			"></path>
+			N
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="e1Id" d="
+			M0,15
+			L150,15
+			M0,125
+			L112,125
+			M0,235
+			L150,235
+			M15,125
+			L15,0
+			M15,125
+			L15,250
+			"></path>
+			E
 		</svg>
 	</center>
 </div>
