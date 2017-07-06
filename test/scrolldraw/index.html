@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Scroll Draw</title>
 <style>
 html, body {
 	height: 110%;
+	width: 100%;
+	border: 0;
+	padding: 0;
 	margin: 0;
 }
-.mySVG {
+.container {
 	position: fixed;
-	top: 15%;
-	width: 400px;
-	height: 270px;
-	border: 1px;
-	border-style: solid;
+	top: 50%;
+	left: 50%;
+	width: 1000px;
+	transform: translate(-50%, -50%);
 }
-.mySVG2 {
-	position: fixed;
-	top: 15%;
-	left: 400px;
-	width: 400px;
-	height: 270px;
+.letter {
+	position: absolute fixed;
+	width: 150px;
+	height: 250px;
 	border: 1px;
 	border-style: solid;
 }
@@ -27,33 +28,59 @@ html, body {
 <script>
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
-var triangle;
-var length;
-var triangle2;
-var length2;
+var n1Id;
+var a1Id;
+var t1Id;
+var h1Id;
+var a2Id;
+var n2Id;
+var lengthN1;
+var lengthA1;
+var lengthT1;
+var lengthH1;
+var lengthA2;
+var lengthN2;
 function initScrollers() {
 	if (!isIE && !isEdge) {
-		triangle = document.getElementById("triangle");
-		length = triangle.getTotalLength();
-		triangle.style.strokeDasharray = length;
-
-		triangle2 = document.getElementById("triangle2");
-		length2 = triangle.getTotalLength();
-		triangle2.style.strokeDasharray = length2;
-
-		window.addEventListener("scroll", myFunction);
+		n1Id = document.getElementById("n1Id");
+		a1Id = document.getElementById("a1Id");
+		t1Id = document.getElementById("t1Id");
+		h1Id = document.getElementById("h1Id");
+		a2Id = document.getElementById("a2Id");
+		n2Id = document.getElementById("n2Id");
+		lengthN1 = n1Id.getTotalLength();
+		lengthA1 = a1Id.getTotalLength();
+		lengthT1 = t1Id.getTotalLength();
+		lengthH1 = h1Id.getTotalLength() - 400;
+		lengthA2 = a2Id.getTotalLength();
+		lengthN2 = n2Id.getTotalLength();
+		n1Id.style.strokeDasharray = lengthN1;
+		a1Id.style.strokeDasharray = lengthA1;
+		t1Id.style.strokeDasharray = lengthT1;
+		h1Id.style.strokeDasharray = lengthH1;
+		a2Id.style.strokeDasharray = lengthA2;
+		n2Id.style.strokeDasharray = lengthN2;
+		window.addEventListener("scroll", scroller);
 	}
 }
-function myFunction() {
+function scroller() {
 	var scrolled = document.body.scrollTop;
 	var docuHeight = document.documentElement.scrollHeight;
 	var viewHeight = document.documentElement.clientHeight;
 	// console.log(scrolled+"-"+(docuHeight-viewHeight));
 	var scrollpercent = (scrolled) / (docuHeight - viewHeight);
-	var draw = length * scrollpercent;
-	var draw2 = length2 * scrollpercent;
-	triangle.style.strokeDashoffset = draw;
-	triangle2.style.strokeDashoffset = draw2;
+	var drawN1 = lengthN1 * scrollpercent;
+	var drawA1 = lengthA1 * scrollpercent;
+	var drawT1 = lengthT1 * scrollpercent;
+	var drawH1 = lengthH1 * scrollpercent;
+	var drawA2 = lengthA2 * scrollpercent;
+	var drawN2 = lengthN2 * scrollpercent;
+	n1Id.style.strokeDashoffset = drawN1;
+	a1Id.style.strokeDashoffset = drawA1;
+	t1Id.style.strokeDashoffset = drawT1;
+	h1Id.style.strokeDashoffset = drawH1;
+	a2Id.style.strokeDashoffset = drawA2;
+	n2Id.style.strokeDashoffset = drawN2;
 }
 </script>
 </head>
@@ -62,15 +89,77 @@ function myFunction() {
 <h2>Scroll down this window to draw</h2>
 <p>Scroll back up to reverse the drawing</p>
 
-<svg class="mySVG">
-	<path fill="none" stroke="red" stroke-width="30" id="triangle" d="M150 50 L75 250 L225 250 Z"></path>
-	Sorry, your browser does not support inline SVG.
-</svg>
+<div class="container">
+	<center>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="n1Id" d="
+			M15,250
+			L15,0
+			L135,250
+			L135,0
+			"></path>
+			N
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="a1Id" d="
+			M15,255
+			L15,250
+			L75,0
+			L135,250
+			L135,255
+			M37,125
+			L112,125
+			"></path>
+			A
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="t1Id" d="
+			M75,15
+			L0,15
+			M75,15
+			L150,15
+			M75,0
+			L75,250
+			"></path>
+			T
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="h1Id" d="
+			M15,250
+			L15,0
+			M135,0
+			L135,250
+			M75,125
+			L0,125
+			M75,125
+			L150,125
+			"></path>
+			H
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="a2Id" d="
+			M15,255
+			L15,250
+			L75,0
+			L135,250
+			L135,255
+			M37,125
+			L112,125
+			"></path>
+			A
+		</svg>
+		<svg class="letter">
+			<path fill="none" stroke="red" stroke-width="30" id="n2Id" d="
+			M15,250
+			L15,0
+			L135,250
+			L135,0
+			"></path>
+			N
+		</svg>
+	</center>
+</div>
 
-<svg class="mySVG2">
-	<path fill="none" stroke="red" stroke-width="30" id="triangle2" d="M150 50 L75 250 L225 250 Z"></path>
-	Sorry, your browser does not support inline SVG.
-</svg>
 <script>initScrollers()</script>
 
 </body>
