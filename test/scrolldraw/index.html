@@ -4,31 +4,36 @@
 <title>Scroll Draw</title>
 <style>
 html, body {
-	height: 120%;
+	height: 100%;
 	width: 100%;
 	border: 0;
 	padding: 0;
 	margin: 0;
 }
 .container {
-	position: fixed;
+	position: relative;
 	top: 50%;
 	left: 50%;
-	width: 1000px;
-	transform: translate(-50%, -50%);
+	height: 100%;
+	transform: translate(-50%, -25%);
 }
 .letter {
-	position: absolute fixed;
+	position: relative;
 	width: 150px;
 	height: 250px;
-	border: 1px;
 	padding: 5px;
-	border-style: solid;
+}
+.barrier {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: goldenrod;
+	font-size: 40px;
+	height: 100%;
 }
 </style>
 <script>
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
+var containerClass = document.querySelector(".container");
 var n1Id;
 var a1Id;
 var t1Id;
@@ -91,9 +96,9 @@ function initScrollers() {
 }
 function scroller() {
 	var scrolled = document.body.scrollTop;
-	var docuHeight = document.documentElement.scrollHeight;
 	var viewHeight = document.documentElement.clientHeight;
-	var scrollpercent = (scrolled) / (docuHeight - viewHeight);
+	var scrollpercent = ((scrolled) / (viewHeight))*4;
+	var opacity = 1 - scrollpercent;
 	var drawN1 = lengthN1 * scrollpercent;
 	var drawA1 = lengthA1 * scrollpercent;
 	var drawT1 = lengthT1 * scrollpercent;
@@ -106,164 +111,106 @@ function scroller() {
 	var drawN3 = lengthN3 * scrollpercent;
 	var drawE1 = lengthE1 * scrollpercent;
 	n1Id.style.strokeDashoffset = drawN1;
+	n1Id.setAttribute("stroke-opacity", opacity);
 	a1Id.style.strokeDashoffset = drawA1;
+	a1Id.setAttribute("stroke-opacity", opacity);
 	t1Id.style.strokeDashoffset = drawT1;
+	t1Id.setAttribute("stroke-opacity", opacity);
 	h1Id.style.strokeDashoffset = drawH1;
+	h1Id.setAttribute("stroke-opacity", opacity);
 	a2Id.style.strokeDashoffset = drawA2;
+	a2Id.setAttribute("stroke-opacity", opacity);
 	n2Id.style.strokeDashoffset = drawN2;
+	n2Id.setAttribute("stroke-opacity", opacity);
 	r1Id.style.strokeDashoffset = drawR1;
+	r1Id.setAttribute("stroke-opacity", opacity);
 	a3Id.style.strokeDashoffset = drawA3;
+	a3Id.setAttribute("stroke-opacity", opacity);
 	i1Id.style.strokeDashoffset = drawI1;
+	i1Id.setAttribute("stroke-opacity", opacity);
 	n3Id.style.strokeDashoffset = drawN3;
+	n3Id.setAttribute("stroke-opacity", opacity);
 	e1Id.style.strokeDashoffset = drawE1;
+	e1Id.setAttribute("stroke-opacity", opacity);
 }
 </script>
 </head>
 <body>
-<h2>Scroll down this window to draw</h2>
-<p>Scroll back up to reverse the drawing</p>
 <div class="container">
 	<center>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="n1Id" d="
-			M15,250
-			L15,0
-			L135,250
-			L135,0
+			M15,250 L15,0 L135,250 L135,0
 			"></path>
 			N
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="a1Id" d="
-			M15,255
-			L15,250
-			L75,0
-			L135,250
-			L135,255
-			M37,125
-			L112,125
+			M15,250 L75,0 L135,250 M37,125 L112,125
 			"></path>
 			A
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="t1Id" d="
-			M75,15
-			L0,15
-			M75,15
-			L150,15
-			M75,0
-			L75,250
+			M75,15 L0,15 M75,15 L150,15 M75,0 L75,250
 			"></path>
 			T
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="h1Id" d="
-			M15,250
-			L15,0
-			M135,0
-			L135,250
-			M75,125
-			L0,125
-			M75,125
-			L150,125
+			M15,250 L15,0 M135,0 L135,250 M75,125 L0,125 M75,125 L150,125
 			"></path>
 			H
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="a2Id" d="
-			M15,255
-			L15,250
-			L75,0
-			L135,250
-			L135,255
-			M37,125
-			L112,125
+			M15,250 L75,0 L135,250 M37,125 L112,125
 			"></path>
 			A
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="n2Id" d="
-			M15,250
-			L15,0
-			L135,250
-			L135,0
+			M15,250 L15,0 L135,250 L135,0
 			"></path>
 			N
 		</svg>
 		<br>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="r1Id" d="
-			M0,15
-			L60,15
-	        a75,60 0 0,1 75,60
-	        a-75,60 0 0,1 -75,60
-	        L0,135
-	        M15,250
-	        L15,0
-	        M0,135
-	        L60,135
-	        a75,60 0 0,1 75,60
-	        L135,250
+			M0,15 L60,15 a75,60 0 0,1 75,60 a-75,60 0 0,1 -75,60 L0,135 M15,250 L15,0 M0,135 L60,135 a75,60 0 0,1 75,60 L135,250
 			"></path>
 			R
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="a3Id" d="
-			M15,255
-			L15,250
-			L75,0
-			L135,250
-			L135,255
-			M37,125
-			L112,125
+			M15,250 L75,0 L135,250 M37,125 L112,125
 			"></path>
 			A
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="i1Id" d="
-			M75,15
-			L0,15
-			M75,15
-			L150,15
-			M75,0
-			L75,125
-			M75,250
-			L75,125
-			M75,235
-			L0,235
-			M75,235
-			L150,235
+			M75,15 L0,15 M75,15 L150,15 M75,0 L75,125 M75,250 L75,125 M75,235 L0,235 M75,235 L150,235
 			"></path>
 			I
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="n3Id" d="
-			M15,250
-			L15,0
-			L135,250
-			L135,0
+			M15,250 L15,0 L135,250 L135,0
 			"></path>
 			N
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="30" id="e1Id" d="
-			M0,15
-			L150,15
-			M0,125
-			L112,125
-			M0,235
-			L150,235
-			M15,125
-			L15,0
-			M15,125
-			L15,250
+			M0,15 L150,15 M0,125 L112,125 M0,235 L150,235 M15,125 L15,0 M15,125 L15,250
 			"></path>
 			E
 		</svg>
 	</center>
 </div>
-
 <script>initScrollers()</script>
-
+<div class="barrier">
+Scroll Up and Down this page to see the drawing effect.
+This div is just here to enable scrolling.
+</div>
 </body>
 </html>
