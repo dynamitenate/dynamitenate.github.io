@@ -4,7 +4,7 @@
 <title>Scroll Draw</title>
 <style>
 html, body {
-	height: 110%;
+	height: 120%;
 	width: 100%;
 	border: 0;
 	padding: 0;
@@ -64,17 +64,17 @@ function initScrollers() {
 		i1Id = document.getElementById("i1Id");
 		n3Id = document.getElementById("n3Id");
 		e1Id = document.getElementById("e1Id");
-		lengthN1 = n1Id.getTotalLength();
+		lengthN1 = n1Id.getTotalLength() + 100;
 		lengthA1 = a1Id.getTotalLength();
 		lengthT1 = t1Id.getTotalLength();
 		lengthH1 = h1Id.getTotalLength() - 400;
 		lengthA2 = a2Id.getTotalLength();
-		lengthN2 = n2Id.getTotalLength();
+		lengthN2 = n2Id.getTotalLength() + 100;
 		lengthR1 = r1Id.getTotalLength() - 400;
 		lengthA3 = a3Id.getTotalLength();
 		lengthI1 = i1Id.getTotalLength() - 400;
-		lengthN3 = n3Id.getTotalLength();
-		lengthE1 = e1Id.getTotalLength();
+		lengthN3 = n3Id.getTotalLength() + 100;
+		lengthE1 = e1Id.getTotalLength() - 500;
 		n1Id.style.strokeDasharray = lengthN1;
 		a1Id.style.strokeDasharray = lengthA1;
 		t1Id.style.strokeDasharray = lengthT1;
