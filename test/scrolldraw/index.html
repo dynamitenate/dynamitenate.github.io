@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+	height: 110%;
+	margin: 0;
+}
+.mySVG {
+	position: fixed;
+	top: 15%;
+	width: 400px;
+	height: 270px;
+	border: 1px;
+	border-style: solid;
+}
+.mySVG2 {
+	position: fixed;
+	top: 15%;
+	left: 400px;
+	width: 400px;
+	height: 270px;
+	border: 1px;
+	border-style: solid;
+}
+</style>
+<script>
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isEdge = !isIE && !!window.StyleMedia;
+var triangle;
+var length;
+var triangle2;
+var length2;
+function initScrollers() {
+	if (!isIE && !isEdge) {
+		triangle = document.getElementById("triangle");
+		length = triangle.getTotalLength();
+		triangle.style.strokeDasharray = length;
+
+		triangle2 = document.getElementById("triangle2");
+		length2 = triangle.getTotalLength();
+		triangle2.style.strokeDasharray = length2;
+
+		window.addEventListener("scroll", myFunction);
+	}
+}
+function myFunction() {
+	var scrolled = document.body.scrollTop;
+	var docuHeight = document.documentElement.scrollHeight;
+	var viewHeight = document.documentElement.clientHeight;
+	// console.log(scrolled+"-"+(docuHeight-viewHeight));
+	var scrollpercent = (scrolled) / (docuHeight - viewHeight);
+	var draw = length * scrollpercent;
+	var draw2 = length2 * scrollpercent;
+	triangle.style.strokeDashoffset = draw;
+	triangle2.style.strokeDashoffset = draw2;
+}
+</script>
+</head>
+<body>
+
+<h2>Scroll down this window to draw</h2>
+<p>Scroll back up to reverse the drawing</p>
+
+<svg class="mySVG">
+	<path fill="none" stroke="red" stroke-width="30" id="triangle" d="M150 50 L75 250 L225 250 Z"></path>
+	Sorry, your browser does not support inline SVG.
+</svg>
+
+<svg class="mySVG2">
+	<path fill="none" stroke="red" stroke-width="30" id="triangle2" d="M150 50 L75 250 L225 250 Z"></path>
+	Sorry, your browser does not support inline SVG.
+</svg>
+<script>initScrollers()</script>
+
+</body>
+</html>
