@@ -21,8 +21,8 @@ html, body {
 	position: relative;
 	width: 100px;
 	height: 150px;
-	border-width: 1px;
-	border-style: solid;
+	/*border-width: 1px;
+	border-style: solid;*/
 	padding: 15px;
 	overflow: visible;
 }
@@ -70,7 +70,7 @@ function scroller() {
 	var scrolled = document.body.scrollTop;
 	if (scrolled >= 0) {
 		var viewHeight = document.documentElement.clientHeight;
-		var scrollpercent = ((scrolled) / (viewHeight))*4;
+		var scrollpercent = ((scrolled) / (viewHeight))*3;
 		var opacity = 1 - scrollpercent;
 		var draw = [];
 		letterLengths.forEach(function(item, index, array) {
@@ -78,26 +78,23 @@ function scroller() {
 		});
 		letterIds.forEach(function(item, index, array) {
 			item.style.strokeDashoffset = draw[index];
-			item.setAttribute("stroke-opacity", opacity);
+			item.setAttribute("stroke-opacity", 1);
+			if (opacity <= 0) {
+				item.setAttribute("stroke-opacity", 0);
+			} else if (index > 10) {
+				item.setAttribute("stroke-opacity", opacity + 0.1);
+			}
 		});
 	}
 }
 </script>
-<!-- <svg class="letter defs">
-	<defs>
-		<filter id="f2" x="-20%" y="-20%" height="150%" width="150%" filterUnits="userSpaceOnUse">
-			<feOffset in="SourceAlpha" result="offOut" dx="-10" dy="0" />
-			<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-		</filter>
-	</defs>
-</svg> -->
 </head>
 <body>
 <div class="container">
 	<center>
 		<svg class="letter">
-			<path fill="none" stroke="black" stroke-width="25" id="n1Sh" d="
-			M10,150 L10,25 L90,125 L90,0
+			<path fill="none" stroke="black" stroke-width="20" id="n1Sh" d="
+			M0,150 L0,25 L80,125 L80,0
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
 			M10,150 L10,25 L90,125 L90,0
@@ -106,7 +103,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="a1Sh" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
+			M-1,150 L44,25 L89,150 M9,115 L79,100
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
@@ -115,7 +112,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="t1Sh" d="
-			M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
+			M47,10 L-3,10 M47,10 L97,10 M47,0 L47,150
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
 			M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
@@ -124,16 +121,16 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="h1Sh" d="
-			M10,150 L10,0 M90,0 L90,150 M50,100 L0,100 M50,100 L100,100
+			M13,150 L13,0 M93,0 L93,150 M53,80 L3,80 M53,80 L103,80
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
-			M10,150 L10,0 M90,0 L90,150 M50,100 L0,100 M50,100 L100,100
+			M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80
 			"></path>
 			H
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="a2Sh" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
+			M11,150 L56,25 L101,150 M21,115 L91,100
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
@@ -142,7 +139,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="n2Sh" d="
-			M10,150 L10,25 L90,125 L90,0
+			M20,150 L20,25 L100,125 L100,0
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
 			M10,150 L10,25 L90,125 L90,0
@@ -152,7 +149,7 @@ function scroller() {
 		<br>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="r1Sh" d="
-			M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M5,98 L40,93 a50,40 0 0,1 50,40 L90,150
+			M-10,10 L30,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L-5,100 M0,150 L0,0 M-5,98 L30,93 a50,40 0 0,1 50,40 L80,150
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
 			M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M5,98 L40,93 a50,40 0 0,1 50,40 L90,150
@@ -161,7 +158,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="a3Sh" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
+			M0,150 L45,25 L90,150 M10,115 L80,100
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
@@ -170,7 +167,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="i1Sh" d="
-			M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
+			M51,10 L1,10 M51,10 L101,10 M51,0 L51,75 M51,150 L51,75 M51,140 L1,140 M51,140 L101,140
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
 			M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
@@ -179,7 +176,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="n3Sh" d="
-			M10,150 L10,25 L90,125 L90,0
+			M15,150 L15,25 L95,125 L95,0
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
 			M10,150 L10,25 L90,125 L90,0
@@ -188,7 +185,7 @@ function scroller() {
 		</svg>
 		<svg class="letter">
 			<path fill="none" stroke="black" stroke-width="20" id="e1Sh" d="
-			M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
+			M10,10 L110,10 M10,75 L85,75 M10,140 L110,140 M20,75 L20,0 M20,75 L20,150
 			"></path>
 			<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
 			M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
