@@ -21,6 +21,16 @@ html, body {
 	position: relative;
 	width: 150px;
 	height: 250px;
+	border-width: 1px;
+	border-style: solid;
+	/*padding: 5px;*/
+}
+.newletter {
+	position: relative;
+	width: 100px;
+	height: 150px;
+	border-width: 1px;
+	border-style: solid;
 	padding: 5px;
 }
 .barrier {
@@ -37,28 +47,6 @@ var containerClass = document.querySelector(".container");
 var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id", "i1Id", "n3Id", "e1Id"];
 var letterIds = [];
 var letterLengths = [];
-// var n1Id;
-// var a1Id;
-// var t1Id;
-// var h1Id;
-// var a2Id;
-// var n2Id;
-// var r1Id;
-// var a3Id;
-// var i1Id;
-// var n3Id;
-// var e1Id;
-// var lengthN1;
-// var lengthA1;
-// var lengthT1;
-// var lengthH1;
-// var lengthA2;
-// var lengthN2;
-// var lengthR1;
-// var lengthA3;
-// var lengthI1;
-// var lengthN3;
-// var lengthE1;
 function initScrollers() {
 	if (!isIE && !isEdge) {
 		letterIdStr.forEach(function(item, index, array) {
@@ -66,182 +54,110 @@ function initScrollers() {
 		});
 		letterIds.forEach(function(item, index, array) {
 			letterLengths[index] = item.getTotalLength();
-			if (index == 0 || index == 5 || index == 9) {
-				letterLengths[index] += 100;
+			if (index == 3) {
+				letterLengths[index] -= 200;
 			}
-			if (index == 3 || index == 6 || index == 8) {
-				letterLengths[index] -= 400;
+			if (index == 6 || index == 10) {
+				letterLengths[index] -= 300;
 			}
-			if (index == 10) {
-				letterLengths[index] -= 500;
+			if (index == 8) {
+				letterLengths[index] -= 250;
 			}
 			item.style.strokeDasharray = letterLengths[index];
-			// item.setAttribute("stroke-linecap", "round");
 		});
-		// n1Id = document.getElementById("n1Id");
-		// a1Id = document.getElementById("a1Id");
-		// t1Id = document.getElementById("t1Id");
-		// h1Id = document.getElementById("h1Id");
-		// a2Id = document.getElementById("a2Id");
-		// n2Id = document.getElementById("n2Id");
-		// r1Id = document.getElementById("r1Id");
-		// a3Id = document.getElementById("a3Id");
-		// i1Id = document.getElementById("i1Id");
-		// n3Id = document.getElementById("n3Id");
-		// e1Id = document.getElementById("e1Id");
-		// lengthN1 = n1Id.getTotalLength() + 100;
-		// lengthA1 = a1Id.getTotalLength();
-		// lengthT1 = t1Id.getTotalLength();
-		// lengthH1 = h1Id.getTotalLength() - 400;
-		// lengthA2 = a2Id.getTotalLength();
-		// lengthN2 = n2Id.getTotalLength() + 100;
-		// lengthR1 = r1Id.getTotalLength() - 400;
-		// lengthA3 = a3Id.getTotalLength();
-		// lengthI1 = i1Id.getTotalLength() - 400;
-		// lengthN3 = n3Id.getTotalLength() + 100;
-		// lengthE1 = e1Id.getTotalLength() - 500;
-		// n1Id.style.strokeDasharray = lengthN1;
-		// a1Id.style.strokeDasharray = lengthA1;
-		// t1Id.style.strokeDasharray = lengthT1;
-		// h1Id.style.strokeDasharray = lengthH1;
-		// a2Id.style.strokeDasharray = lengthA2;
-		// n2Id.style.strokeDasharray = lengthN2;
-		// r1Id.style.strokeDasharray = lengthR1;
-		// a3Id.style.strokeDasharray = lengthA3;
-		// i1Id.style.strokeDasharray = lengthI1;
-		// n3Id.style.strokeDasharray = lengthN3;
-		// e1Id.style.strokeDasharray = lengthE1;
-		// n1Id.setAttribute("stroke-linecap", "round");
-		// a1Id.setAttribute("stroke-linecap", "round");
-		// t1Id.setAttribute("stroke-linecap", "round");
-		// h1Id.setAttribute("stroke-linecap", "round");
-		// a2Id.setAttribute("stroke-linecap", "round");
-		// n2Id.setAttribute("stroke-linecap", "round");
-		// r1Id.setAttribute("stroke-linecap", "round");
-		// a3Id.setAttribute("stroke-linecap", "round");
-		// i1Id.setAttribute("stroke-linecap", "round");
-		// n3Id.setAttribute("stroke-linecap", "round");
-		// e1Id.setAttribute("stroke-linecap", "round");
 		window.addEventListener("scroll", scroller);
 	}
 }
 function scroller() {
 	var scrolled = document.body.scrollTop;
 	var viewHeight = document.documentElement.clientHeight;
-	var scrollpercent = ((scrolled) / (viewHeight));
+	var scrollpercent = ((scrolled) / (viewHeight))*4;
 	var opacity = 1 - scrollpercent;
 	var draw = [];
 	letterLengths.forEach(function(item, index, array) {
 		draw[index] = item * scrollpercent;
 	});
-	console.log(letterLengths[8] + "-" + draw[8]);
 	letterIds.forEach(function(item, index, array) {
 		item.style.strokeDashoffset = draw[index];
 		item.setAttribute("stroke-opacity", opacity);
 	});
-	// var drawN1 = lengthN1 * scrollpercent;
-	// var drawA1 = lengthA1 * scrollpercent;
-	// var drawT1 = lengthT1 * scrollpercent;
-	// var drawH1 = lengthH1 * scrollpercent;
-	// var drawA2 = lengthA2 * scrollpercent;
-	// var drawN2 = lengthN2 * scrollpercent;
-	// var drawR1 = lengthR1 * scrollpercent;
-	// var drawA3 = lengthA3 * scrollpercent;
-	// var drawI1 = lengthI1 * scrollpercent;
-	// var drawN3 = lengthN3 * scrollpercent;
-	// var drawE1 = lengthE1 * scrollpercent;
-	// n1Id.style.strokeDashoffset = drawN1;
-	// a1Id.style.strokeDashoffset = drawA1;
-	// t1Id.style.strokeDashoffset = drawT1;
-	// h1Id.style.strokeDashoffset = drawH1;
-	// a2Id.style.strokeDashoffset = drawA2;
-	// n2Id.style.strokeDashoffset = drawN2;
-	// r1Id.style.strokeDashoffset = drawR1;
-	// a3Id.style.strokeDashoffset = drawA3;
-	// i1Id.style.strokeDashoffset = drawI1;
-	// n3Id.style.strokeDashoffset = drawN3;
-	// e1Id.style.strokeDashoffset = drawE1;
-	// n1Id.setAttribute("stroke-opacity", opacity);
-	// a1Id.setAttribute("stroke-opacity", opacity);
-	// t1Id.setAttribute("stroke-opacity", opacity);
-	// h1Id.setAttribute("stroke-opacity", opacity);
-	// a2Id.setAttribute("stroke-opacity", opacity);
-	// n2Id.setAttribute("stroke-opacity", opacity);
-	// r1Id.setAttribute("stroke-opacity", opacity);
-	// a3Id.setAttribute("stroke-opacity", opacity);
-	// i1Id.setAttribute("stroke-opacity", opacity);
-	// n3Id.setAttribute("stroke-opacity", opacity);
-	// e1Id.setAttribute("stroke-opacity", opacity);
 }
 </script>
 </head>
 <body>
 <div class="container">
 	<center>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="n1Id" d="
-			M15,250 L15,0 L135,250 L135,0
-			"></path>
+		<svg class="newletter">
+		<defs>
+       <filter id="filter1" x="0" y="0">
+           <feOffset result="offOut" in="SourceAlpha" dx="-5" dy="-5" />
+           <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+           <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+</defs>
+			<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
+			M10,150 L10,25 L90,125 L90,0
+			"filter="url(#filter1)"></path>
 			N
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="a1Id" d="
-			M15,250 L75,0 L135,250 M37,125 L112,125
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
+			M5,150 L50,25 L95,150 M15,115 L85,100
 			"></path>
 			A
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="t1Id" d="
-			M75,15 L0,15 M75,15 L150,15 M75,0 L75,250
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
+			M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
 			"></path>
 			T
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="h1Id" d="
-			M15,250 L15,0 M135,0 L135,250 M75,125 L0,125 M75,125 L150,125
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
+			M10,150 L10,0 M90,0 L90,150 M50,100 L0,100 M50,100 L100,100
 			"></path>
 			H
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="a2Id" d="
-			M15,250 L75,0 L135,250 M37,125 L112,125
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
+			M5,150 L50,25 L95,150 M15,115 L85,100
 			"></path>
 			A
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="n2Id" d="
-			M15,250 L15,0 L135,250 L135,0
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
+			M10,150 L10,25 L90,125 L90,0
 			"></path>
 			N
 		</svg>
 		<br>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="r1Id" d="
-			M0,15 L60,15 a75,60 0 0,1 75,60 a-75,60 0 0,1 -75,60 L0,135 M15,250 L15,0 M0,135 L60,135 a75,60 0 0,1 75,60 L135,250
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
+			M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M5,98 L40,93 a50,40 0 0,1 50,40 L90,150
 			"></path>
 			R
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="a3Id" d="
-			M15,250 L75,0 L135,250 M37,125 L112,125
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
+			M5,150 L50,25 L95,150 M15,115 L85,100
 			"></path>
 			A
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="i1Id" d="
-			M75,15 L0,15 M75,15 L150,15 M75,0 L75,125 M75,250 L75,125 M75,235 L0,235 M75,235 L150,235
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
+			M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
 			"></path>
 			I
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="n3Id" d="
-			M15,250 L15,0 L135,250 L135,0
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
+			M10,150 L10,25 L90,125 L90,0
 			"></path>
 			N
 		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="30" id="e1Id" d="
-			M0,15 L150,15 M0,125 L112,125 M0,235 L150,235 M15,125 L15,0 M15,125 L15,250
+		<svg class="newletter">
+			<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
+			M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
 			"></path>
 			E
 		</svg>
