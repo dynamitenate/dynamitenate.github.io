@@ -15,23 +15,20 @@ html, body {
 	top: 50%;
 	left: 50%;
 	height: 100%;
-	transform: translate(-50%, -25%);
+	transform: translate(-50%, -40%);
 }
 .letter {
-	position: relative;
-	width: 150px;
-	height: 250px;
-	border-width: 1px;
-	border-style: solid;
-	/*padding: 5px;*/
-}
-.newletter {
 	position: relative;
 	width: 100px;
 	height: 150px;
 	border-width: 1px;
 	border-style: solid;
-	padding: 5px;
+	padding: 15px;
+	overflow: visible;
+}
+.letter.defs {
+	padding: 0px;
+	visibility: hidden;
 }
 .barrier {
 	background-color: rgba(0, 0, 0, 0.8);
@@ -83,82 +80,84 @@ function scroller() {
 	});
 }
 </script>
+<svg class="letter defs">
+	<defs>
+		<filter id="f2" x="-20%" y="-20%" height="150%" width="150%" filterUnits="userSpaceOnUse">
+			<feOffset in="SourceAlpha" result="offOut" dx="-10" dy="0" />
+			<!-- <feGaussianBlur in="offOut" result="blurOut" stdDeviation="10" /> -->
+			<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+		</filter>
+	</defs>
+</svg>
 </head>
 <body>
 <div class="container">
 	<center>
-		<svg class="newletter">
-		<defs>
-       <filter id="filter1" x="0" y="0">
-           <feOffset result="offOut" in="SourceAlpha" dx="-5" dy="-5" />
-           <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
-           <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-    </filter>
-</defs>
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
 			M10,150 L10,25 L90,125 L90,0
-			"filter="url(#filter1)"></path>
+			" filter="url(#f2)"></path>
 			N
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
+			" filter="url(#f2)"></path>
 			A
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
 			M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
-			"></path>
+			" filter="url(#f2)"></path>
 			T
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
 			M10,150 L10,0 M90,0 L90,150 M50,100 L0,100 M50,100 L100,100
-			"></path>
+			" filter="url(#f2)"></path>
 			H
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
+			" filter="url(#f2)"></path>
 			A
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
 			M10,150 L10,25 L90,125 L90,0
-			"></path>
+			" filter="url(#f2)"></path>
 			N
 		</svg>
 		<br>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
 			M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M5,98 L40,93 a50,40 0 0,1 50,40 L90,150
-			"></path>
+			" filter="url(#f2)"></path>
 			R
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
 			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
+			" filter="url(#f2)"></path>
 			A
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
 			M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
-			"></path>
+			" filter="url(#f2)"></path>
 			I
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
 			M10,150 L10,25 L90,125 L90,0
-			"></path>
+			" filter="url(#f2)"></path>
 			N
 		</svg>
-		<svg class="newletter">
+		<svg class="letter">
 			<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
 			M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
-			"></path>
+			" filter="url(#f2)"></path>
 			E
 		</svg>
 	</center>
