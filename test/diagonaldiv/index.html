@@ -5,9 +5,57 @@
 <style>
 html, body {
 	height: 100%;
+	width: 100%;
 	border: 0;
 	padding: 0;
 	margin: 0;
+}
+.rotatebackground {
+	position: relative;
+	height: 110%;
+	background-image: url("..\\assets\\1.jpg");
+}
+.rotateouterdiv {
+	position: absolute;
+	left: 50%;
+	height: 200px;
+	width: 120%;
+	-webkit-transform-origin: 0% 0%;
+	transform-origin: 0% 0%;
+}
+.rotateouterdiv.div1 {
+	top: 30%;
+	-webkit-transform: rotate(-5deg) translate(-50%, -50%);
+	transform: rotate(-5deg) translate(-50%, -50%);
+	background-color: red;
+}
+.rotateouterdiv.div2 {
+	top: 50%;
+	-webkit-transform: rotate(5deg) translate(-50%, -50%);
+	transform: rotate(5deg) translate(-50%, -50%);
+	background-color: orange;
+}
+.rotateouterdiv.div3 {
+	top: 70%;
+	-webkit-transform: rotate(-5deg) translate(-50%, -50%);
+	transform: rotate(-5deg) translate(-50%, -50%);
+	background-color: yellow;
+}
+.rotateinnerdiv {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	height: 100px;
+	-webkit-transform-origin: 0% 0%;
+	transform-origin: 0% 0%;
+}
+.rotateinnerdiv.rotateleft {
+	-webkit-transform: rotate(5deg) translate(-50%, -50%);
+	transform: rotate(5deg) translate(-50%, -50%);
+}
+.rotateinnerdiv.rotateright {
+	-webkit-transform: rotate(-5deg) translate(-50%, -50%);
+	transform: rotate(-5deg) translate(-50%, -50%);
 }
 .solid{
 	position: relative;
@@ -26,17 +74,11 @@ html, body {
 .solid.yellow {
 	background: yellow;
 }
-.solid.green {
-	background: green;
-}
 .slash.red-orange {
 	background-image: linear-gradient(to bottom right, red, red 49.5%, orangered 50%, orange 50.5%, orange);
 }
 .slash.orange-yellow {
 	background-image: linear-gradient(to bottom left, orange, orange 49.5%, gold 50%, yellow 50.5%, yellow);
-}
-.slash.yellow-green {
-	background-image: linear-gradient(to bottom right, yellow, yellow 49.5%, greenyellow 50%, green 50.5%, green);
 }
 .text {
 	position: absolute;
@@ -48,6 +90,31 @@ html, body {
 </style>
 </head>
 <body>
+<center><h3>Rotation Technique:</h3></center>
+<div class="rotatebackground">
+	<div class="rotateouterdiv div1">
+		<div class="rotateinnerdiv rotateleft">
+			<div class="text">
+				Red section text
+			</div>
+		</div>
+	</div>
+	<div class="rotateouterdiv div2">
+		<div class="rotateinnerdiv rotateright">
+			<div class="text">
+				Orange section text
+			</div>
+		</div>
+	</div>
+	<div class="rotateouterdiv div3">
+		<div class="rotateinnerdiv rotateleft">
+			<div class="text">
+				Yellow section text
+			</div>
+		</div>
+	</div>
+</div>
+<center><h3>Linear Gradient Technique:</h3></center>
 <div class="solid red">
 	<div class="text">
 		Red section text
@@ -71,16 +138,6 @@ html, body {
 <div class="solid yellow">
 	<div class="text">
 		Yellow section text
-	</div>
-</div>
-<div class="slash yellow-green">
-	<div class="text">
-		Yellow-Green section text
-	</div>
-</div>
-<div class="solid green">
-	<div class="text">
-		Green section text
 	</div>
 </div>
 </body>
