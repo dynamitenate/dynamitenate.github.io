@@ -16,7 +16,7 @@ html, body {
 }
 .parallax.img1{
 	height: 100%;
-	background-image: url("assets\\1cropped.jpg");
+	background-image: url("assets\\1.jpg");
 	background-position: bottom;
 	background-size: cover;
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -25,11 +25,9 @@ html, body {
 }
 .topcontainer {
 	position: relative;
-	height: 100%;
+	height: 125%;
 	font-size: 60px;
 	overflow: hidden;
-	border-style: solid;
-	border-width: 1px;
 }
 .namecontainer {
 	position: relative;
@@ -50,18 +48,25 @@ html, body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	padding: 15px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: white;
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.8);
+	font-size: 30pt;
 }
-.barrier {
-	background-color: rgba(0, 0, 0, 0.8);
-	color: goldenrod;
-	font-size: 40px;
-	height: 100%;
+.rotateouterdiv {
+	position: absolute;
+	left: 50%;
+	height: 300px;
+	width: 120%;
+	box-shadow: 0px 0px 20px black;
+	transform-origin: 0% 0%;
+	transform: rotate(-5deg) translate(-50%, -50%);
+	background-color: goldenrod;
+}
+.rotateinnerdiv {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	height: 200px;
+	transform-origin: 0% 0%;
+	transform: rotate(5deg) translate(-50%, -50%);
 }
 </style>
 <script>
@@ -95,7 +100,6 @@ function initScrollers() {
 		letterIds[index] = document.getElementById(item);
 	});
 	letterIds.forEach(function(item, index, array) {
-		console.log(index);
 		letterLengths[index] = item.getTotalLength();
 		if (index == 3 || index == 6 || index == 14 || index == 17) {
 			letterLengths[index] -= 200;
@@ -201,9 +205,13 @@ function scroller() {
 	</div>
 </div>
 <script>initScrollers()</script>
-<div class="barrier">
-Scroll Up and Down this page to see the parallax scrolling effect.
-This div is just here to enable scrolling.
+<div class="rotateouterdiv">
+	<div class="rotateinnerdiv">
+		<div class="text">
+		Scroll Up and Down this page to see the parallax scrolling effect.
+		This div is just here to enable scrolling.
+		</div>
+	</div>
 </div>
 </body>
 </html>
