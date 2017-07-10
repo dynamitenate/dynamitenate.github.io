@@ -17,6 +17,7 @@ html, body {
 	position: relative;
 	height: 200%;
 	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
     filter: blur(0px);
     background-image: linear-gradient(to bottom, goldenrod, black);
 }
@@ -33,16 +34,18 @@ html, body {
 	-webkit-text-fill-color: transparent;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-$(window).scroll(function(e){
-	blurify();
-});
+window.addEventListener("scroll", blurify);
+var preffix = "blur(";
+var suffix = "px)";
+var scrolled;
+var query;
 function blurify() {
-	var scrolled = $(window).scrollTop();
-	scrolled /= 50;
-	$(".container").css("-webkit-filter", "blur(" + scrolled + "px)");
-	$(".container").css("filter", "blur(" + scrolled + "px)");
+	scrolled = (document.body.scrollTop + document.documentElement.scrollTop)/50;
+	query = document.querySelector(".container");
+	query.style["-webkit-filter"] = preffix + (scrolled) + suffix;
+	query.style["-moz-filter"] = preffix + (scrolled) + suffix;
+	query.style.filter = preffix + (scrolled) + suffix;
 }
 </script>
 </head>

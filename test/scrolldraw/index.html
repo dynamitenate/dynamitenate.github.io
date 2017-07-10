@@ -21,8 +21,6 @@ html, body {
 	position: relative;
 	width: 100px;
 	height: 150px;
-	/*border-width: 1px;
-	border-style: solid;*/
 	padding: 15px;
 	overflow: visible;
 }
@@ -45,7 +43,7 @@ var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id
 var letterIds = [];
 var letterLengths = [];
 function initScrollers() {
-	if (!isIE && !isEdge) {
+	// if (!isIE && !isEdge) {
 		letterIdStr.forEach(function(item, index, array) {
 			letterIds[index] = document.getElementById(item);
 		});
@@ -64,10 +62,10 @@ function initScrollers() {
 			item.style.strokeDasharray = letterLengths[index];
 		});
 		window.addEventListener("scroll", scroller);
-	}
+	// }
 }
 function scroller() {
-	var scrolled = document.body.scrollTop;
+	var scrolled = document.body.scrollTop + document.documentElement.scrollTop;
 	if (scrolled >= 0) {
 		var viewHeight = document.documentElement.clientHeight;
 		var scrollpercent = ((scrolled) / (viewHeight))*3;
