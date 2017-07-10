@@ -24,10 +24,6 @@ html, body {
 	padding: 15px;
 	overflow: visible;
 }
-.letter.defs {
-	padding: 0px;
-	visibility: hidden;
-}
 .barrier {
 	background-color: rgba(0, 0, 0, 0.8);
 	color: goldenrod;
@@ -36,33 +32,29 @@ html, body {
 }
 </style>
 <script>
-var isIE = /*@cc_on!@*/false || !!document.documentMode;
-var isEdge = !isIE && !!window.StyleMedia;
 var containerClass = document.querySelector(".container");
 var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id", "i1Id", "n3Id", "e1Id", "n1Sh", "a1Sh", "t1Sh", "h1Sh", "a2Sh", "n2Sh", "r1Sh", "a3Sh", "i1Sh", "n3Sh", "e1Sh"];
 var letterIds = [];
 var letterLengths = [];
 function initScrollers() {
-	// if (!isIE && !isEdge) {
-		letterIdStr.forEach(function(item, index, array) {
-			letterIds[index] = document.getElementById(item);
-		});
-		letterIds.forEach(function(item, index, array) {
-			console.log(index);
-			letterLengths[index] = item.getTotalLength();
-			if (index == 3 || index == 6 || index == 14 || index == 17) {
-				letterLengths[index] -= 200;
-			}
-			if (index == 10 || index == 21) {
-				letterLengths[index] -= 300;
-			}
-			if (index == 8 || index == 19) {
-				letterLengths[index] -= 250;
-			}
-			item.style.strokeDasharray = letterLengths[index];
-		});
-		window.addEventListener("scroll", scroller);
-	// }
+	letterIdStr.forEach(function(item, index, array) {
+		letterIds[index] = document.getElementById(item);
+	});
+	letterIds.forEach(function(item, index, array) {
+		console.log(index);
+		letterLengths[index] = item.getTotalLength();
+		if (index == 3 || index == 6 || index == 14 || index == 17) {
+			letterLengths[index] -= 200;
+		}
+		if (index == 10 || index == 21) {
+			letterLengths[index] -= 300;
+		}
+		if (index == 8 || index == 19) {
+			letterLengths[index] -= 250;
+		}
+		item.style.strokeDasharray = letterLengths[index];
+	});
+	window.addEventListener("scroll", scroller);
 }
 function scroller() {
 	var scrolled = document.body.scrollTop + document.documentElement.scrollTop;
