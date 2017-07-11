@@ -16,7 +16,7 @@ html, body {
 }
 .parallax.img1{
 	height: 100%;
-	background-image: url("assets\\1.jpg");
+	background-image: url("assets\\1cropped.jpg");
 	background-position: bottom;
 	background-size: cover;
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -25,7 +25,7 @@ html, body {
 }
 .topcontainer {
 	position: relative;
-	height: 125%;
+	height: 102%;
 	font-size: 60px;
 	overflow: hidden;
 }
@@ -50,23 +50,12 @@ html, body {
 	transform: translate(-50%, -50%);
 	font-size: 30pt;
 }
-.rotateouterdiv {
-	position: absolute;
-	left: 50%;
-	height: 300px;
-	width: 120%;
-	box-shadow: 0px 0px 20px black;
-	transform-origin: 0% 0%;
-	transform: rotate(-5deg) translate(-50%, -50%);
+.barrier {
 	background-color: goldenrod;
-}
-.rotateinnerdiv {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	height: 200px;
-	transform-origin: 0% 0%;
-	transform: rotate(5deg) translate(-50%, -50%);
+	color: black;
+	box-shadow: 0px 0px 20px black;
+	font-size: 40px;
+	height: 100%;
 }
 </style>
 <script>
@@ -131,6 +120,8 @@ function scroller() {
 				item.setAttribute("stroke-opacity", 0);
 			} else if (index > 10) {
 				item.setAttribute("stroke-opacity", opacity + 0.1);
+			} else {
+				item.setAttribute("stroke-opacity", opacity + 0.4)
 			}
 		});
 	}
@@ -205,13 +196,9 @@ function scroller() {
 	</div>
 </div>
 <script>initScrollers()</script>
-<div class="rotateouterdiv">
-	<div class="rotateinnerdiv">
-		<div class="text">
-		Scroll Up and Down this page to see the parallax scrolling effect.
-		This div is just here to enable scrolling.
-		</div>
-	</div>
+<div class="barrier">
+Scroll Up and Down this page to see the parallax scrolling effect.
+This div is just here to enable scrolling.
 </div>
 </body>
 </html>
