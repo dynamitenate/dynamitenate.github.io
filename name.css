@@ -1,0 +1,24 @@
+.letter {
+	position: relative;
+	width: 100px;
+	height: 150px;
+	padding: 15px;
+	overflow: visible;
+}
+.namecontainer {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	transform: translate(-50%, -25%);
+}
+.back {
+	fill: none;
+	stroke: black;
+	stroke-width: 20;
+}
+.front {
+	fill: none;
+	stroke: goldenrod;
+	stroke-width: 20;
+}

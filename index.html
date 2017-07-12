@@ -2,203 +2,79 @@
 <html>
 <head>
 <title>Nathan Raine</title>
-<style>
-html, body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-}
-.parallax {
-	position: absolute;
-	width: 100%;
-	z-index: -1;
-	background-repeat: repeat;
-}
-.parallax.img1{
-	height: 100%;
-	background-image: url("assets\\1cropped.jpg");
-	background-position: bottom;
-	background-size: cover;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
-}
-.topcontainer {
-	position: relative;
-	height: 102%;
-	font-size: 60px;
-	overflow: hidden;
-}
-.namecontainer {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	height: 100%;
-	transform: translate(-50%, -25%);
-}
-.letter {
-	position: relative;
-	width: 100px;
-	height: 150px;
-	padding: 15px;
-	overflow: visible;
-}
-.text {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 30pt;
-}
-.barrier {
-	background-color: goldenrod;
-	color: black;
-	box-shadow: 0px 0px 20px black;
-	font-size: 40px;
-	height: 100%;
-}
-</style>
-<script>
-window.addEventListener("scroll", parallax);
-var images = [".parallax.img1"];
-var preffix = "translate3d(0px, ";
-var suffix = "px, 0px)";
-var scrolledDelta;
-var newProperty;
-var query;
-function parallax() {
-	scrolledDelta = (document.body.scrollTop + document.documentElement.scrollTop)*0.2;
-	images.forEach(function(item, index, array) {
-		query = document.querySelector(item);
-		if (index == 0) {
-			newProperty = preffix + (scrolledDelta) + suffix;
-		}
-		query.style["-webkit-transform"] = newProperty;
-		query.style["-moz-transform"] = newProperty;
-		query.style.transform = newProperty;
-	});
-}
-</script>
-<script>
-var containerClass = document.querySelector(".container");
-var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id", "i1Id", "n3Id", "e1Id", "n1Sh", "a1Sh", "t1Sh", "h1Sh", "a2Sh", "n2Sh", "r1Sh", "a3Sh", "i1Sh", "n3Sh", "e1Sh"];
-var letterIds = [];
-var letterLengths = [];
-function initScrollers() {
-	letterIdStr.forEach(function(item, index, array) {
-		letterIds[index] = document.getElementById(item);
-	});
-	letterIds.forEach(function(item, index, array) {
-		letterLengths[index] = item.getTotalLength();
-		if (index == 3 || index == 6 || index == 14 || index == 17) {
-			letterLengths[index] -= 200;
-		}
-		if (index == 10 || index == 21) {
-			letterLengths[index] -= 300;
-		}
-		if (index == 8 || index == 19) {
-			letterLengths[index] -= 250;
-		}
-		item.style.strokeDasharray = letterLengths[index];
-	});
-	window.addEventListener("scroll", scroller);
-}
-function scroller() {
-	var scrolled = document.body.scrollTop + document.documentElement.scrollTop;
-	if (scrolled >= 0) {
-		var viewHeight = document.documentElement.clientHeight;
-		var scrollpercent = ((scrolled) / (viewHeight))*3;
-		var opacity = 1 - scrollpercent;
-		var draw = [];
-		letterLengths.forEach(function(item, index, array) {
-			draw[index] = item * scrollpercent;
-		});
-		letterIds.forEach(function(item, index, array) {
-			item.style.strokeDashoffset = draw[index];
-			item.setAttribute("stroke-opacity", 1);
-			if (opacity <= 0) {
-				item.setAttribute("stroke-opacity", 0);
-			} else if (index > 10) {
-				item.setAttribute("stroke-opacity", opacity + 0.1);
-			} else {
-				item.setAttribute("stroke-opacity", opacity + 0.4)
-			}
-		});
-	}
-}
-</script>
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="parallax.css">
+<link rel="stylesheet" type="text/css" href="name.css">
+<script src="parallax.js"></script>
+<script src="name.js"></script>
 </head>
 <body>
-<div class="topcontainer">
+<div class="parallaxcontainer">
 	<div class="parallax img1"></div>
 	<div class="namecontainer">
 		<center>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="n1Sh" d="M5,155 L5,30 L85,130 L85,5"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="M10,150 L10,25 L90,125 L90,0"></path>
+				<path id="n1Sh" class="back" d="M5,155 L5,30 L85,130 L85,5"></path>
+				<path id="n1Id" class="front" d="M10,150 L10,25 L90,125 L90,0"></path>
 				N
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="a1Sh" d="M0,155 L45,30 L90,155 M10,120 L80,105"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="M5,150 L50,25 L95,150 M15,115 L85,100"></path>
+				<path id="a1Sh" class="back" d="M0,155 L45,30 L90,155 M10,120 L80,105"></path>
+				<path id="a1Id" class="front" d="M5,150 L50,25 L95,150 M15,115 L85,100"></path>
 				A
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="t1Sh" d="M45,15 L-5,15 M45,15 L95,15 M45,5 L45,155"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="M50,10 L0,10 M50,10 L100,10 M50,0 L50,150"></path>
+				<path id="t1Sh" class="back" d="M45,15 L-5,15 M45,15 L95,15 M45,5 L45,155"></path>
+				<path id="t1Id" class="front" d="M50,10 L0,10 M50,10 L100,10 M50,0 L50,150"></path>
 				T
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="h1Sh" d="M5,155 L5,5 M85,5 L85,155 M45,85 L-5,85 M45,85 L95,85"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80"></path>
+				<path id="h1Sh" class="back" d="M5,155 L5,5 M85,5 L85,155 M45,85 L-5,85 M45,85 L95,85"></path>
+				<path id="h1Id" class="front" d="M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80"></path>
 				H
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="a2Sh" d="M0,155 L45,30 L90,155 M10,120 L80,105
-				"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="M5,150 L50,25 L95,150 M15,115 L85,100
-				"></path>
+				<path id="a2Sh" class="back" d="M0,155 L45,30 L90,155 M10,120 L80,105"></path>
+				<path id="a2Id" class="front" d="M5,150 L50,25 L95,150 M15,115 L85,100"></path>
 				A
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="n2Sh" d="M5,155 L5,30 L85,130 L85,5
-				"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="M10,150 L10,25 L90,125 L90,0"></path>
+				<path id="n2Sh" class="back" d="M5,155 L5,30 L85,130 L85,5"></path>
+				<path id="n2Id" class="front" d="M10,150 L10,25 L90,125 L90,0"></path>
 				N
 			</svg>
 			<br>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="r1Sh" d="M-5,15 L35,15 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L0,105 M5,155 L5,5 M35,97 a50,40 0 0,1 50,40 L85,155"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150"></path>
+				<path id="r1Sh" class="back" d="M-5,15 L35,15 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L0,105 M5,155 L5,5 M35,97 a50,40 0 0,1 50,40 L85,155"></path>
+				<path id="r1Id" class="front" d="M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150"></path>
 				R
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="a3Sh" d="M0,155 L45,30 L90,155 M10,120 L80,105"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="M5,150 L50,25 L95,150 M15,115 L85,100"></path>
+				<path id="a3Sh" class="back" d="M0,155 L45,30 L90,155 M10,120 L80,105"></path>
+				<path id="a3Id" class="front" d="M5,150 L50,25 L95,150 M15,115 L85,100"></path>
 				A
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="i1Sh" d="M45,15 L-5,15 M45,15 L95,15 M45,5 L45,80 M45,155 L45,80 M45,145 L-5,145 M45,145 L95,145"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140"></path>
+				<path id="i1Sh" class="back" d="M45,15 L-5,15 M45,15 L95,15 M45,5 L45,80 M45,155 L45,80 M45,145 L-5,145 M45,145 L95,145"></path>
+				<path id="i1Id" class="front" d="M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140"></path>
 				I
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="n3Sh" d="M5,155 L5,30 L85,130 L85,5"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="M10,150 L10,25 L90,125 L90,0"></path>
+				<path id="n3Sh" class="back" d="M5,155 L5,30 L85,130 L85,5"></path>
+				<path id="n3Id" class="front" d="M10,150 L10,25 L90,125 L90,0"></path>
 				N
 			</svg>
 			<svg class="letter">
-				<path fill="none" stroke="black" stroke-width="20" id="e1Sh" d="M-5,15 L95,15 M-5,80 L70,80 M-5,145 L95,145 M5,80 L5,5 M5,80 L5,155"></path>
-				<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150"></path>
+				<path id="e1Sh" class="back" d="M-5,15 L95,15 M-5,80 L70,80 M-5,145 L95,145 M5,80 L5,5 M5,80 L5,155"></path>
+				<path id="e1Id" class="front" d="M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150"></path>
 				E
 			</svg>
 		</center>
 	</div>
 </div>
 <script>initScrollers()</script>
-<div class="barrier">
-Scroll Up and Down this page to see the parallax scrolling effect.
-This div is just here to enable scrolling.
-</div>
+<section class="section-wrapper">
+	<div class="paragraph">Scroll Up and Down this page to see the parallax scrolling effect.<br>This div is just here to enable scrolling.</div>
+</section>
 </body>
 </html>
