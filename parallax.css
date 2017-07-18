@@ -6,7 +6,7 @@
 }
 .parallax.img1{
 	height: 100%;
-	background-image: url("assets\\1cropped.jpg");
+	background-image: url("assets\\1.jpg");
 	background-position: bottom;
 	background-size: cover;
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -15,7 +15,7 @@
 }
 .parallaxcontainer {
 	position: relative;
-	height: 120%;
+	height: 130%;
 	font-size: 60px;
 	overflow: hidden;
 }
