@@ -4,6 +4,8 @@
 	height: 150px;
 	padding: 15px;
 	overflow: visible;
+	border-width: 1px;
+	border-style: solid;
 }
 .namecontainer {
 	position: relative;

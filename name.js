@@ -49,7 +49,36 @@ function initPaths() {
 		letterIds[20].setAttribute('d', "M5,155 L5,30 L85,130 L85,5");
 		letterIds[21].setAttribute('d', "M-5,15 L95,15 M-5,80 L70,80 M-5,145 L95,145 M5,80 L5,5 M5,80 L5,155");
 	} else {
+		// document.querySelector(".back").style["stroke-width"] = 10;
+		// document.querySelector(".front").style["stroke-width"] = 10;
+		document.querySelector(".letter").style.height = "75px";
+		document.querySelector(".letter").style.width = "50px";
 		// TODO: Draw mobile specific paths
+		letterIds.forEach(function(item, index, array) {
+			item.setAttribute("stroke-width", 10);
+		});
+		letterIds[0].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[1].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[2].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[3].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[4].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[5].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[6].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[7].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[8].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[9].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[10].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[11].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[12].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[13].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[14].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[15].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[16].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[17].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[18].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[19].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[20].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[21].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
 	}
 }
 function scroller() {
