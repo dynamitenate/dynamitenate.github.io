@@ -24,18 +24,18 @@ html, body {
 	transform: translate(-50%, -50%);
 	line-height: 1.5;
 }
-.diag-wrapper {
-	height: 100%;
-}
 .diag {
 	position: relative;
 	background-color: teal;
 	color: white;
-	height: 100%;
-	width: 110%;
-	transform: translate(-5%, -20%) rotate(3deg);
+	height: 5%;
+	width: 100%;
+	transform: translateY(-99%);
+	background: -moz-linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, teal 50.5%, teal);
+	background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, teal 50.5%, teal);
 }
 .barrier {
+	padding-top: 5%;
 	position: relative;
 	background-color: teal;
 	color: white;
