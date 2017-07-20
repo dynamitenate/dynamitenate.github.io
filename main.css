@@ -9,9 +9,9 @@ html, body {
 }
 .aboutme {
 	position: relative;
-	height: 3em;
+	height: 5em;
 	text-align: center;
-	font-size: 10em;
+	font-size: 5em;
 	font-weight: bold;
 	letter-spacing: 12px;
 }
@@ -19,9 +19,9 @@ html, body {
 	position: relative;
 	left: 50%;
 	right: 50%;
-	padding: 10%;
+	padding: 5%;
 	font-size: 1.5em;
-	transform: translate(-50%, -50%);
+	transform: translateX(-50%);
 	line-height: 1.5;
 }
 .diag {
