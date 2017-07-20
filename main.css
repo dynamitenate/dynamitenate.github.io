@@ -25,7 +25,7 @@ html, body {
 	line-height: 1.5;
 }
 .diag-wrapper {
-	height: 30%;
+	height: 100%;
 }
 .diag {
 	position: relative;
