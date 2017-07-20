@@ -64,6 +64,7 @@ function initPaths() {
 		letterIds[21].setAttribute('d', "M-5,15 L95,15 M-5,80 L70,80 M-5,145 L95,145 M5,80 L5,5 M5,80 L5,155");
 	} else {
 		mobile = true;
+		document.querySelector(".namecontainer").style.transform = "translate(-50%, -15%)";
 		var backLetters = document.querySelectorAll(".back");
 		backLetters.forEach(function(item, index, array) {
 			item.style["stroke-width"] = 10;
@@ -78,7 +79,6 @@ function initPaths() {
 			item.style.height = "75px";
 			item.style.width = "50px";
 		});
-		// TODO: Draw mobile specific paths
 		letterIds.forEach(function(item, index, array) {
 			item.setAttribute("stroke-width", 10);
 		});
