@@ -1,6 +1,7 @@
 var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id", "i1Id", "n3Id", "e1Id", "n1Sh", "a1Sh", "t1Sh", "h1Sh", "a2Sh", "n2Sh", "r1Sh", "a3Sh", "i1Sh", "n3Sh", "e1Sh"];
 var letterIds = [];
 var letterLengths = [];
+var mobile;
 function initScrollers() {
 	letterIdStr.forEach(function(item, index, array) {
 		letterIds[index] = document.getElementById(item);
@@ -9,13 +10,25 @@ function initScrollers() {
 	letterIds.forEach(function(item, index, array) {
 		letterLengths[index] = item.getTotalLength();
 		if (index == 3 || index == 6 || index == 14 || index == 17) {
-			letterLengths[index] -= 200;
+			if (mobile) {
+				letterLengths[index] -= 100;
+			} else {
+				letterLengths[index] -= 200;
+			}
 		}
 		if (index == 10 || index == 21) {
-			letterLengths[index] -= 300;
+			if (mobile) {
+				letterLengths[index] -= 150;
+			} else {
+				letterLengths[index] -= 300;
+			}
 		}
 		if (index == 8 || index == 19) {
-			letterLengths[index] -= 250;
+			if (mobile) {
+				letterLengths[index] -= 75;
+			} else {
+				letterLengths[index] -= 250;
+			}
 		}
 		item.style.strokeDasharray = letterLengths[index];
 		if (index > 10) {
@@ -26,6 +39,7 @@ function initScrollers() {
 }
 function initPaths() {
 	if (document.documentElement.clientWidth >= 850) {
+		mobile = false;
 		letterIds[0].setAttribute('d', "M10,150 L10,25 L90,125 L90,0");
 		letterIds[1].setAttribute('d', "M5,150 L50,25 L95,150 M15,115 L85,100");
 		letterIds[2].setAttribute('d', "M50,10 L0,10 M50,10 L100,10 M50,0 L50,150");
@@ -49,36 +63,47 @@ function initPaths() {
 		letterIds[20].setAttribute('d', "M5,155 L5,30 L85,130 L85,5");
 		letterIds[21].setAttribute('d', "M-5,15 L95,15 M-5,80 L70,80 M-5,145 L95,145 M5,80 L5,5 M5,80 L5,155");
 	} else {
-		// document.querySelector(".back").style["stroke-width"] = 10;
-		// document.querySelector(".front").style["stroke-width"] = 10;
-		document.querySelector(".letter").style.height = "75px";
-		document.querySelector(".letter").style.width = "50px";
+		mobile = true;
+		var backLetters = document.querySelectorAll(".back");
+		backLetters.forEach(function(item, index, array) {
+			item.style["stroke-width"] = 10;
+		});
+		var frontLetters = document.querySelectorAll(".front");
+		frontLetters.forEach(function(item, index, array) {
+			item.style["stroke-width"] = 10;
+		});
+		var letterNodes = document.querySelectorAll(".letter");
+		letterNodes.forEach(function(item, index, array) {
+			item.style.padding = "8px";
+			item.style.height = "75px";
+			item.style.width = "50px";
+		});
 		// TODO: Draw mobile specific paths
 		letterIds.forEach(function(item, index, array) {
 			item.setAttribute("stroke-width", 10);
 		});
 		letterIds[0].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[1].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[2].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[3].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[4].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[1].setAttribute('d', "M3,75 L25,13 L48,75 M8,58 L43,50");
+		letterIds[2].setAttribute('d', "M25,5 L0,5 M25,5 L50,5 M25,0 L25,75");
+		letterIds[3].setAttribute('d', "M5,75 L5,0 M45,0 L45,75 M25,40 L0,40 M25,40 L50,40");
+		letterIds[4].setAttribute('d', "M3,75 L25,13 L48,75 M8,58 L43,50");
 		letterIds[5].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[6].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[7].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[8].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[6].setAttribute('d', "M0,5 L20,5 a25,20 0 0,1 25,20 a-25,20 0 0,1 -20,20 L3,50 M5,75 L5,0 M20,46 a25,20 0 0,1 25,20 L45,75");
+		letterIds[7].setAttribute('d', "M3,75 L25,13 L48,75 M8,58 L43,50");
+		letterIds[8].setAttribute('d', "M25,5 L0,5 M25,5 L50,5 M25,0 L25,39 M25,75 L25,38 M25,70 L0,70 M25,70 L50,70");
 		letterIds[9].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[10].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[11].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[12].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[13].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[14].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[15].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[16].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[17].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[18].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[19].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[20].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
-		letterIds[21].setAttribute('d', "M5,75 L5,13 L45,63 L45,0");
+		letterIds[10].setAttribute('d', "M0,5 L50,5 M0,38 L38,38 M0,70 L50,70 M5,38 L5,0 M5,38 L5,75");
+		letterIds[11].setAttribute('d', "M0,80 L0,18 L40,68 L40,5");
+		letterIds[12].setAttribute('d', "M-2,80 L20,18 L43,80 M3,63 L38,55");
+		letterIds[13].setAttribute('d', "M20,10 L-5,10 M20,10 L45,10 M20,5 L20,80");
+		letterIds[14].setAttribute('d', "M0,80 L0,5 M40,5 L40,80 M20,35 L-5,35 M20,35 L45,35");
+		letterIds[15].setAttribute('d', "M-2,80 L20,18 L43,80 M3,63 L38,55");
+		letterIds[16].setAttribute('d', "M0,80 L0,18 L40,68 L40,5");
+		letterIds[17].setAttribute('d', "M-5,10 L15,10 a25,20 0 0,1 25,20 a-25,20 0 0,1 -20,20 L-2,55 M0,80 L0,5 M15,51 a25,20 0 0,1 25,20 L40,80");
+		letterIds[18].setAttribute('d', "M-2,80 L20,18 L43,80 M3,63 L38,55");
+		letterIds[19].setAttribute('d', "M20,10 L-5,10 M20,10 L45,10 M20,5 L20,44 M20,80 L20,43 M20,75 L-5,75 M20,75 L45,75");
+		letterIds[20].setAttribute('d', "M0,80 L0,18 L40,68 L40,5");
+		letterIds[21].setAttribute('d', "M-5,10 L45,10 M-5,43 L33,43 M-5,75 L45,75 M0,43 L0,5 M0,43 L0,80");
 	}
 }
 function scroller() {
