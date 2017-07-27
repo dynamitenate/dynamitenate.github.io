@@ -13,9 +13,28 @@
 	-moz-transform: translate3d(0px, 0px, 0px);
 	transform: translate3d(0px, 0px, 0px);
 }
+.parallax.img2{
+	height: 150%;
+	background-image: url("test\\assets\\2.jpg");
+	background-size: cover;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+	-moz-transform: translate3d(0px, 0px, 0px);
+	transform: translate3d(0px, 0px, 0px);
+}
 .parallaxcontainer {
 	position: relative;
-	height: 110%;
 	font-size: 60px;
 	overflow: hidden;
+}
+.parallaxcontainer.one {
+	height: 110%;
+}
+.parallaxcontainer.two {
+	height: 80%;
+}
+.parallaxspacer {
+	position: relative;
+}
+.parallaxspacer.one{
+	height: 100%;
 }

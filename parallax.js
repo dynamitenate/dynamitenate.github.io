@@ -1,4 +1,4 @@
-var images = [".parallax.img1"];
+var images = [".parallax.img1", ".parallax.img2"];
 var preffix = "translate3d(0px, ";
 var suffix = "px, 0px)";
 var scrolledDelta;
@@ -10,6 +10,8 @@ function parallax() {
 		query = document.querySelector(item);
 		if (index == 0) {
 			newProperty = preffix + (scrolledDelta) + suffix;
+		} else if (index == 1) {
+			newProperty = preffix + (scrolledDelta - 300) + suffix;
 		}
 		query.style["-webkit-transform"] = newProperty;
 		query.style["-moz-transform"] = newProperty;
