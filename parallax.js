@@ -11,7 +11,7 @@ function parallax() {
 		if (index == 0) {
 			newProperty = preffix + (scrolledDelta) + suffix;
 		} else if (index == 1) {
-			newProperty = preffix + (scrolledDelta - 300) + suffix;
+			newProperty = preffix + (scrolledDelta - 500) + suffix;
 		}
 		query.style["-webkit-transform"] = newProperty;
 		query.style["-moz-transform"] = newProperty;
