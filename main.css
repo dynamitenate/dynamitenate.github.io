@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 html, body {
 	height: 100%;
@@ -10,6 +10,8 @@ html, body {
 .aboutme-title {
 	position: relative;
 	text-align: center;
+	font-family: 'Bungee', cursive;
+	font-weight: bold;
 	font-size: 5em;
 	padding: 3%;
 	padding-bottom: 0;
@@ -52,6 +54,8 @@ html, body {
 .myskills-title {
 	position: relative;
 	text-align: center;
+	font-family: 'Bungee Shade', cursive;
+	font-weight: bold;
 	font-size: 5em;
 	padding: 3%;
 	padding-bottom: 0;
