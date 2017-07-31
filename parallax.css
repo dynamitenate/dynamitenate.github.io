@@ -16,7 +16,7 @@
 .parallax.img2{
 	height: 150%;
 	background-image: url("test\\assets\\2.jpg");
-	background-size: cover;
+	background-position: top center;
 	-webkit-transform: translate3d(0px, 0px, 0px);
 	-moz-transform: translate3d(0px, 0px, 0px);
 	transform: translate3d(0px, 0px, 0px);
