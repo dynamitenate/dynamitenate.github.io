@@ -39,14 +39,9 @@ html, body {
 	color: black;
 	height: 5%;
 	width: 100%;
+	margin-top: -1px;
 	background: -moz-linear-gradient(to bottom left, royalblue, royalblue 49.5%, rgba(18,18,18,0.5) 50%, rgba(18,18,18,0.5) 50.5%, rgba(18,18,18,0.5));
 	background: linear-gradient(to bottom left, royalblue, royalblue 49.5%, rgba(18,18,18,0.5) 50%, rgba(18,18,18,0.5) 50.5%, rgba(18,18,18,0.5));
-	border-style: solid;
-	border-top: 1px;
-	border-left: 0px;
-	border-right: 0px;
-	border-bottom: 0px;
-	border-color: royalblue;
 }
 .aboutme-section {
 	position: relative;
