@@ -34,7 +34,10 @@
 }
 .parallaxspacer {
 	position: relative;
+	font-size: 12px;
 }
 .parallaxspacer.one{
 	height: 100%;
+	background-color: rgba(18, 18, 18, 0.5);
+	color: white;
 }
