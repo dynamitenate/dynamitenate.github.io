@@ -15,7 +15,8 @@
 }
 .parallax.img2{
 	height: 150%;
-	background-image: url("test\\assets\\2.jpg");
+	background-image: url("assets\\purdue.jpg");
+	background-position: bottom;
 	background-size: cover;
 	-webkit-transform: translate3d(0px, 0px, 0px);
 	-moz-transform: translate3d(0px, 0px, 0px);
