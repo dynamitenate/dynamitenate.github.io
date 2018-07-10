@@ -28,6 +28,7 @@ html, body {
 	margin-bottom: -1px;
 	transform: translateX(-50%);
 	line-height: 1.5;
+	text-align: justify;
 }
 .aboutme-diag-open {
 	position: relative;
