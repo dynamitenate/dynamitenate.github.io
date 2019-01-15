@@ -50,7 +50,8 @@ html, body {
 }
 .aboutme-section {
 	position: relative;
-	background-color: royalblue;
+	background: -moz-linear-gradient(to bottom right, royalblue, #9544ff);
+	background: linear-gradient(to bottom right, royalblue, #9544ff);
 	color: #202020;
 }
 .myskills-title {

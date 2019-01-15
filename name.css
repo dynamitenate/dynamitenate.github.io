@@ -19,6 +19,6 @@
 }
 .front {
 	fill: none;
-	stroke: #f36e15;
+	stroke: url(#name-letter-gradient);
 	stroke-width: 20;
 }
