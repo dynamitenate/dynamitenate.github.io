@@ -64,6 +64,17 @@ function isElementInView(bounds) {
 	return (bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom) 
 		|| (bounds.top <= viewport.bottom && bounds.top >= viewport.top);
 }
+function update(parallaxElements) {
+	let scroll = getScroll();
+	parallaxElements.forEach((element) => {
+		let bounds = element.bounds;
+		let scrollPercentage = ((((scroll - bounds.top) / (bounds.bottom - bounds.top)) + 1) / 2) * 100;
+		if (isElementInView(element.bounds)) {
+			element.object.style['background-position'] = `0% ${scrollPercentage}%`;
+		}
+	});
+	console.log(scroll + " | " + parallaxElements[0].object.style['background-position'] + " " + parallaxElements[1].object.style['background-position'] + " " + parallaxElements[2].object.style['background-position']);
+}
 window.addEventListener('load', (event) => {
 	var parallaxElements = Array.from(document.getElementsByClassName("parallax"));
 	parallaxElements = parallaxElements.map((element) => {
@@ -78,19 +89,9 @@ window.addEventListener('load', (event) => {
 			}
 		}
 	});
-	console.log(parallaxElements);
-	window.addEventListener('scroll', () => {
-		let scroll = getScroll();
-		parallaxElements.forEach((element) => {
-			let bounds = element.bounds;
-			let scrollPercentage = ((((scroll - bounds.top) / (bounds.bottom - bounds.top)) + 1) / 2) * 100;
-			if (isElementInView(element.bounds)) {
-				element.object.style['background-position'] = `0% ${scrollPercentage}%`;
-			}
-		});
-		console.log(scroll + " | " + parallaxElements[0].object.style['background-position'] + " " + parallaxElements[1].object.style['background-position'] + " " + parallaxElements[2].object.style['background-position']);
-	});
-	console.log((document.body.scrollTop || document.documentElement.scrollTop) + " | " + parallaxElements[0].object.style['background-position'] + " " + parallaxElements[1].object.style['background-position'] + " " + parallaxElements[2].object.style['background-position']);
+	window.addEventListener('scroll', () => update(parallaxElements));
+	update(parallaxElements);
+	console.log(getScroll() + " | " + parallaxElements[0].object.style['background-position'] + " " + parallaxElements[1].object.style['background-position'] + " " + parallaxElements[2].object.style['background-position']);
 });
 </script>
 </head>
