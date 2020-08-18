@@ -88,7 +88,6 @@ function setParallaxBackgroundPosition(parallaxObjects) {
 		let height = parallaxObject.element.clientHeight;
 		let scrollDistance = (scroll - parallaxObject.boundsTop);
 		let parallaxDistance = scrollDistance * 0.5;
-		//let scrollPercentage = (((((scroll - boundsTop) / height) + 1) / 2)* 100);
 		parallaxObject.element.style['background-position'] = `0px ${parallaxDistance}px`;
 	});
 }
@@ -96,11 +95,11 @@ function setParallaxBackgroundSize(parallaxObject) {
 	let imageRatio = (parallaxObject.image.width / parallaxObject.image.height);
 	let divRatio = (parallaxObject.element.clientWidth / parallaxObject.element.clientHeight);
 	if (imageRatio > divRatio) {
-		let newHeight = (parallaxObject.element.clientHeight)// + (parallaxObject.element.clientHeight * 0.1));
+		let newHeight = (parallaxObject.element.clientHeight)
 		parallaxObject.element.style['backgroundSize'] = `auto ${newHeight}px`;
 	}
 	else {
-		let newWidth = (parallaxObject.element.clientWidth)// + (parallaxObject.element.clientWidth * 0.1));
+		let newWidth = (parallaxObject.element.clientWidth)
 		parallaxObject.element.style['backgroundSize'] = `${newWidth}px auto`;
 	}
 }
@@ -109,7 +108,6 @@ function initParallaxObjects(parallaxObjects) {
 		parallaxObject.element.style['backgroundPosition'] = parallaxObject.element.style['backgroundPosition'] ?? '0px 0px';
 		parallaxObject.element.addEventListener('resize', () => setParallaxBackgroundSize(parallaxObject));
 		setParallaxBackgroundSize(parallaxObject);
-		//parallaxObject.element.style['backgroundSize'] = 'cover';
 	});
 }
 window.addEventListener('load', async(event) => {
@@ -117,7 +115,6 @@ window.addEventListener('load', async(event) => {
 	window.addEventListener('resize', () => initParallaxObjects(parallaxObjects));
 	initParallaxObjects(parallaxObjects);
 	window.addEventListener('scroll', () => setParallaxBackgroundPosition(parallaxObjects));
-	//setParallaxBackgroundPosition(parallaxElements);
 });
 </script>
 </head>
