@@ -16,6 +16,7 @@ html, body {
 	left: 50%;
 	height: 100%;
 	transform: translate(-50%, -25%);
+	text-align: center;
 }
 .letter {
 	position: relative;
@@ -23,7 +24,7 @@ html, body {
 	height: 150px;
 	padding: 15px;
 	overflow: visible;
-	filter: drop-shadow(-3px 3px 2px rgba(0, 0, 0, .7));
+	filter: drop-shadow(-3px 3px 2px rgba(0, 0, 0, 0.7));
 }
 .barrier {
 	background-color: rgba(0, 0, 0, 0.8);
@@ -33,9 +34,6 @@ html, body {
 }
 </style>
 <script>
-var letterIdStr = ["n1Id", "a1Id", "t1Id", "h1Id", "a2Id", "n2Id", "r1Id", "a3Id", "i1Id", "n3Id", "e1Id"];
-var letterIds = [];
-var letterLengths = [];
 function getScroll() {
 	return (document.body.scrollTop || document.documentElement.scrollTop);
 }
@@ -93,75 +91,73 @@ window.addEventListener('load', () => initLetters());
 </head>
 <body>
 <div class="container">
-	<center>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
-			M10,150 L10,25 L90,125 L90,0
-			"></path>
-			N
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
-			A
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
-			M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
-			"></path>
-			T
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
-			M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80
-			"></path>
-			H
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
-			A
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
-			M10,150 L10,25 L90,125 L90,0
-			"></path>
-			N
-		</svg>
-		<br>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
-			M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150
-			"></path>
-			R
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
-			M5,150 L50,25 L95,150 M15,115 L85,100
-			"></path>
-			A
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
-			M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
-			"></path>
-			I
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
-			M10,150 L10,25 L90,125 L90,0
-			"></path>
-			N
-		</svg>
-		<svg class="letter">
-			<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
-			M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
-			"></path>
-			E
-		</svg>
-	</center>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
+		M10,150 L10,25 L90,125 L90,0
+		"></path>
+		N
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
+		M5,150 L50,25 L95,150 M15,115 L85,100
+		"></path>
+		A
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
+		M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
+		"></path>
+		T
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
+		M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80
+		"></path>
+		H
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
+		M5,150 L50,25 L95,150 M15,115 L85,100
+		"></path>
+		A
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
+		M10,150 L10,25 L90,125 L90,0
+		"></path>
+		N
+	</svg>
+	<br>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
+		M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150
+		"></path>
+		R
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
+		M5,150 L50,25 L95,150 M15,115 L85,100
+		"></path>
+		A
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
+		M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
+		"></path>
+		I
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
+		M10,150 L10,25 L90,125 L90,0
+		"></path>
+		N
+	</svg>
+	<svg class="letter">
+		<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
+		M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
+		"></path>
+		E
+	</svg>
 </div>
 <div class="barrier">
 Scroll Up and Down this page to see the drawing effect.
