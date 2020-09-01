@@ -9,17 +9,9 @@ html, body {
 }
 .parallax {
     width: 100%;
-    height: 100%;
-	background-repeat: no-repeat;
-}
-.parallax.img1{
-	background-image: url("..\\assets\\1.jpg");
-}
-.parallax.img2{
-	background-image: url("..\\assets\\2.jpg");
-}
-.parallax.img3{
-	background-image: url("..\\assets\\3.jpg");
+	height: 100%;
+	background-position: center 0px;
+	background-repeat: repeat-y;
 }
 .text {
 	position: relative;
@@ -34,6 +26,15 @@ html, body {
 	background-color: rgba(0, 0, 0, 0.7);
 	color: rgba(255, 255, 255, 0.8);
 	width: fit-content;
+}
+.img1{
+	background-image: url("..\\assets\\1.jpg");
+}
+.img2{
+	background-image: url("..\\assets\\2.jpg");
+}
+.img3{
+	background-image: url("..\\assets\\3.jpg");
 }
 .barrier {
 	background-color: rgba(0, 0, 0, 0.8);
@@ -80,7 +81,7 @@ function setParallaxBackgroundPosition(parallaxObjects) {
 		let height = parallaxObject.element.clientHeight;
 		let scrollDistance = (scroll - parallaxObject.boundsTop);
 		let parallaxDistance = scrollDistance * 0.5;
-		parallaxObject.element.style['background-position'] = `0px ${parallaxDistance}px`;
+		parallaxObject.element.style['background-position'] = `center ${parallaxDistance}px`;
 	});
 }
 function setParallaxBackgroundSize(parallaxObject) {
@@ -97,7 +98,7 @@ function setParallaxBackgroundSize(parallaxObject) {
 }
 function initParallaxObjects(parallaxObjects) {
 	parallaxObjects.forEach((parallaxObject) => {
-		parallaxObject.element.style['backgroundPosition'] = parallaxObject.element.style['backgroundPosition'] ?? '0px 0px';
+		parallaxObject.element.style['backgroundPosition'] = parallaxObject.element.style['backgroundPosition'] ?? 'center 0px';
 		parallaxObject.element.addEventListener('resize', () => setParallaxBackgroundSize(parallaxObject));
 		setParallaxBackgroundSize(parallaxObject);
 	});

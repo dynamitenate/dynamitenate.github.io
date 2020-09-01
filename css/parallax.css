@@ -1,35 +1,20 @@
 .parallax {
-	position: absolute;
-	width: 100%;
-	z-index: -1;
-	background-repeat: repeat;
+    width: 100%;
+	height: 100%;
+	background-position: center 0px;
+	background-repeat: repeat-y;
 }
 .parallax.img1{
-	height: 100%;
-	background-image: url("assets/1.jpg");
-	background-position: bottom;
-	background-size: cover;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
+	background-image: url("../assets/1.jpg");
 }
 .parallax.img2{
 	height: 150%;
-	background-image: url("assets/purdue.jpg");
-	background-position: bottom;
-	background-size: cover;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
-	/*filter: blur(3px);*/
+	background-image: url("../assets/purdue.jpg");
 }
 .parallaxcontainer {
 	position: relative;
 	font-size: 60px;
 	overflow: hidden;
-}
-.parallaxcontainer.one {
-	height: 100%;
 }
 .parallaxcontainer.two {
 	height: 760px;
