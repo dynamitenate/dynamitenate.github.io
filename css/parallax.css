@@ -1,30 +1,6 @@
-.parallax {
-    width: 100%;
-	height: 100%;
-	background-position: center 0px;
-	background-repeat: repeat-y;
-}
-.parallax.img1{
+.img1{
 	background-image: url("../assets/1.jpg");
 }
-.parallax.img2{
-	height: 150%;
+.img2{
 	background-image: url("../assets/purdue.jpg");
-}
-.parallaxcontainer {
-	position: relative;
-	font-size: 60px;
-	overflow: hidden;
-}
-.parallaxcontainer.two {
-	height: 760px;
-}
-.parallaxspacer {
-	position: relative;
-	font-size: 12px;
-}
-.parallaxspacer.one{
-	height: 100%;
-	background-color: rgba(18, 18, 18, 0.5);
-	color: white;
 }

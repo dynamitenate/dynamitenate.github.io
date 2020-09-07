@@ -7,16 +7,16 @@ function getDistanceToTop(element) {
 }
 
 function getParallaxObjects() {
-	let parallaxElements = [...document.getElementsByClassName("parallax")];
+	let parallaxElements = [...document.querySelectorAll('div[data-parallax]')];
 	let promises = parallaxElements.map(element => getParallaxElement(element));
 	return Promise.all(promises);
 }
 
 function getParallaxElement(element) {
 	let computedStyle = window.getComputedStyle(element);
-	if (computedStyle['background-image']) {
+	if (computedStyle['backgroundImage']) {
 		return new Promise((resolve, reject) => {
-			let imageURL = computedStyle['background-image'].slice(4, -1).replace(/"/g, "");
+			let imageURL = computedStyle['backgroundImage'].slice(4, -1).replace(/"/g, "");
 			let image = new Image();
 			image.src = imageURL;
 			image.onload = () => resolve({
@@ -36,10 +36,9 @@ function getParallaxElement(element) {
 function setParallaxBackgroundPosition(parallaxObjects) {
 	let scroll = getScroll();
 	parallaxObjects.forEach((parallaxObject) => {
-		let height = parallaxObject.element.clientHeight;
 		let scrollDistance = (scroll - parallaxObject.boundsTop);
 		let parallaxDistance = scrollDistance * 0.5;
-		parallaxObject.element.style['background-position'] = `center ${parallaxDistance}px`;
+		parallaxObject.element.style['backgroundPosition'] = `center ${parallaxDistance}px`;
 	});
 }
 
@@ -58,7 +57,8 @@ function setParallaxBackgroundSize(parallaxObject) {
 
 function initParallaxObjects(parallaxObjects) {
 	parallaxObjects.forEach((parallaxObject) => {
-		parallaxObject.element.style['backgroundPosition'] = parallaxObject.element.style['backgroundPosition'] ?? 'center 0px';
+		parallaxObject.element.style['backgroundPosition'] = !!parallaxObject.element.style['backgroundPosition'] ? parallaxObject.element.style['backgroundPosition'] : 'center 0px';
+		parallaxObject.element.style['backgroundRepeat'] = 'repeat-y';
 		parallaxObject.element.addEventListener('resize', () => setParallaxBackgroundSize(parallaxObject));
 		setParallaxBackgroundSize(parallaxObject);
 	});
