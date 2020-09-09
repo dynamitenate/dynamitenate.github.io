@@ -32,6 +32,30 @@ html, body {
 	font-size: 40px;
 	height: 100%;
 }
+.gradient {
+	stroke: url(#name-letter-gradient)
+}
+.n {
+	d: path('M10,150 L10,25 L90,125 L90,0');
+}
+.a {
+	d: path('M5,150 L50,25 L95,150 M15,115 L85,100');
+}
+.t {
+	d: path('M50,10 L0,10 M50,10 L100,10 M50,0 L50,150');
+}
+.h {
+	d: path('M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80');
+}
+.r {
+	d: path('M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150');
+}
+.i {
+	d: path('M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140');
+}
+.e {
+	d: path('M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150');
+}
 </style>
 <script>
 function getScroll() {
@@ -58,7 +82,7 @@ function setLetterOffset(letterObject, percentage) {
 	}
 }
 function setLetterOpacity(letterObject, percentage) {
-	let newOpacity = (1 - percentage);
+	let newOpacity = (1 - percentage / 2);
 	if (newOpacity <= 0) {
 		letterObject.element.style['opacity'] = 0;
 	} else if (newOpacity <= 100) {
@@ -73,7 +97,7 @@ function getLetterObjects() {
 	return letterObjects;
 }
 function getLetterElement(element) {
-	let path = element.firstElementChild;
+	let path = element.getElementsByTagName('path')[0];
 	let length = path.getTotalLength();
 	path.style.strokeDasharray = length
 	return {
@@ -92,71 +116,44 @@ window.addEventListener('load', () => initLetters());
 <body>
 <div class="container">
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="n1Id" d="
-		M10,150 L10,25 L90,125 L90,0
-		"></path>
-		N
+		<defs>
+			<linearGradient id="name-letter-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" stop-color="#f36e15" />
+				<stop offset="100%" stop-color="#f99d0a" />
+			</linearGradient>
+		</defs>
+		<path class="n gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="a1Id" d="
-		M5,150 L50,25 L95,150 M15,115 L85,100
-		"></path>
-		A
+		<path class="a gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="t1Id" d="
-		M50,10 L0,10 M50,10 L100,10 M50,0 L50,150
-		"></path>
-		T
+		<path class="t gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="h1Id" d="
-		M10,150 L10,0 M90,0 L90,150 M50,80 L0,80 M50,80 L100,80
-		"></path>
-		H
+		<path class="h gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="a2Id" d="
-		M5,150 L50,25 L95,150 M15,115 L85,100
-		"></path>
-		A
+		<path class="a gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="n2Id" d="
-		M10,150 L10,25 L90,125 L90,0
-		"></path>
-		N
+		<path class="n gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<br>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="r1Id" d="
-		M0,10 L40,10 a50,40 0 0,1 50,40 a-50,40 0 0,1 -40,40 L5,100 M10,150 L10,0 M40,92 a50,40 0 0,1 50,40 L90,150
-		"></path>
-		R
+		<path class="r gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="a3Id" d="
-		M5,150 L50,25 L95,150 M15,115 L85,100
-		"></path>
-		A
+		<path class="a gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="i1Id" d="
-		M50,10 L0,10 M50,10 L100,10 M50,0 L50,75 M50,150 L50,75 M50,140 L0,140 M50,140 L100,140
-		"></path>
-		I
+		<path class="i gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="n3Id" d="
-		M10,150 L10,25 L90,125 L90,0
-		"></path>
-		N
+		<path class="n gradient" fill="none" stroke-width="20"></path>
 	</svg>
 	<svg class="letter" data-scrolldraw>
-		<path fill="none" stroke="red" stroke-width="20" id="e1Id" d="
-		M0,10 L100,10 M0,75 L75,75 M0,140 L100,140 M10,75 L10,0 M10,75 L10,150
-		"></path>
-		E
+		<path class="e gradient" fill="none" stroke-width="20"></path>
 	</svg>
 </div>
 <div class="barrier">
