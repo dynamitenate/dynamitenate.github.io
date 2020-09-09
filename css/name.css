@@ -14,3 +14,6 @@
 	transform: translate(-50%, -25%);
 	text-align: center;
 }
+.gradient {
+	stroke: url(#name-letter-gradient)
+}

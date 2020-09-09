@@ -42,7 +42,7 @@ function getLetterObjects() {
 }
 
 function getLetterElement(element) {
-	let path = element.firstElementChild;
+	let path = element.getElementsByTagName('path')[0];
 	let length = path.getTotalLength();
 	path.style.strokeDasharray = length
 	return {
