@@ -25,7 +25,7 @@ function setLetterOffset(letterObject, percentage) {
 }
 
 function setLetterOpacity(letterObject, percentage) {
-	let newOpacity = (1 - percentage);
+	let newOpacity = (1 - percentage / 2);
 	if (newOpacity <= 0) {
 		letterObject.element.style['opacity'] = 0;
 	} else if (newOpacity <= 100) {
