@@ -43,7 +43,8 @@ html, body {
 }
 .purdue-section {
 	height: 600px;
-	color: white;
+	background-color: rgb(43, 79, 179);
+	color: white
 }
 .purdue-title {
 	position: relative;
@@ -56,6 +57,7 @@ html, body {
 	filter: drop-shadow(-3px 2px #333);
 }
 .purdue-text {
+	display: inline-block;
 	position: relative;
 	left: 50%;
 	right: 50%;
