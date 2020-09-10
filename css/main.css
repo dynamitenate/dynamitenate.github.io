@@ -8,6 +8,10 @@ html, body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 12px;
 }
+.hero-section {
+	height: 100%;
+	width: 100%;
+}
 .aboutme-title {
 	position: relative;
 	text-align: center;
@@ -16,9 +20,7 @@ html, body {
 	padding: 3%;
 	font-weight: bold;
 	letter-spacing: 12px;
-	background: linear-gradient(to right, #ff6600 0%, #ffc363 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	color: #ff6600;
 	filter: drop-shadow(-3px 2px #333);
 }
 .aboutme-text {
@@ -33,31 +35,18 @@ html, body {
 	line-height: 1.5;
 	text-align: justify;
 }
-.aboutme-diag-open {
-	position: relative;
-	color: black;
-	height: 5%;
-	width: 100%;
-	transform: translateY(-99%); 
-	background: -moz-linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, royalblue 50.5%, royalblue);
-	background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, royalblue 50.5%, royalblue);
-}
-.aboutme-diag-close {
-	position: relative;
-	color: black;
-	height: 5%;
-	width: 100%;
-	margin-top: -1px;
-	background: -moz-linear-gradient(to bottom left, royalblue, royalblue 49.5%, rgba(18,18,18,0.5) 50%, rgba(18,18,18,0.5) 50.5%, rgba(18,18,18,0.5));
-	background: linear-gradient(to bottom left, royalblue, royalblue 49.5%, rgba(18,18,18,0.5) 50%, rgba(18,18,18,0.5) 50.5%, rgba(18,18,18,0.5));
-}
 .aboutme-section {
 	position: relative;
 	background: -moz-linear-gradient(to bottom right, royalblue, #9544ff);
 	background: linear-gradient(to bottom right, royalblue, #9544ff);
 	color: #202020;
 }
-.myskills-title {
+.purdue-section {
+	height: 600px;
+	background-color: rgb(43, 79, 179);
+	color: white
+}
+.purdue-title {
 	position: relative;
 	text-align: center;
 	font-family: 'Montserrat', cursive;
@@ -65,12 +54,10 @@ html, body {
 	padding: 3%;
 	font-weight: bold;
 	letter-spacing: 12px;
-	background: linear-gradient(to right, #6d6d6d 0%, #eaeaea 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	filter: drop-shadow(-3px 2px #333);
 }
-.myskills-text {
+.purdue-text {
+	display: inline-block;
 	position: relative;
 	left: 50%;
 	right: 50%;
@@ -78,15 +65,6 @@ html, body {
 	font-size: 2em;
 	transform: translateX(-50%);
 	line-height: 1.5;
-}
-.experience-diag-open {
-	position: relative;
-	color: black;
-	height: 5%;
-	width: 100%;
-	transform: translateY(-189%); 
-	background: -moz-linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, darkslategray 50.5%, darkslategray);
-	background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(255,0,0,0) 49.5%, rgba(255,0,0,0) 50%, darkslategray 50.5%, darkslategray);
 }
 .experience-section {
 	position: relative;

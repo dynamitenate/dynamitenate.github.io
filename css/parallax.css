@@ -1,45 +1,6 @@
-.parallax {
-	position: absolute;
-	width: 100%;
-	z-index: -1;
-	background-repeat: repeat;
+.img1{
+	background-image: url("../assets/1.jpg");
 }
-.parallax.img1{
-	height: 100%;
-	background-image: url("assets/1.jpg");
-	background-position: bottom;
-	background-size: cover;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
-}
-.parallax.img2{
-	height: 150%;
-	background-image: url("assets/purdue.jpg");
-	background-position: bottom;
-	background-size: cover;
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-moz-transform: translate3d(0px, 0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
-	/*filter: blur(3px);*/
-}
-.parallaxcontainer {
-	position: relative;
-	font-size: 60px;
-	overflow: hidden;
-}
-.parallaxcontainer.one {
-	height: 100%;
-}
-.parallaxcontainer.two {
-	height: 760px;
-}
-.parallaxspacer {
-	position: relative;
-	font-size: 12px;
-}
-.parallaxspacer.one{
-	height: 100%;
-	background-color: rgba(18, 18, 18, 0.5);
-	color: white;
+.img2{
+	background-image: url("../assets/purdue.jpg");
 }
