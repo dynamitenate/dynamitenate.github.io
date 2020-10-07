@@ -43,7 +43,10 @@ html, body {
 }
 .purdue-section {
 	height: 600px;
-	background-color: rgb(43, 79, 179);
+	background-image: linear-gradient(black, black), url("../assets/purdue.jpg");
+	background-blend-mode: soft-light;
+	background-size: cover;
+    background-position: bottom;
 	color: white
 }
 .purdue-title {
