@@ -67,3 +67,23 @@ html, body {
 	line-height: 1.5;
 	filter: drop-shadow(2px 4px 6px black);
 }
+.contact-section {
+	position: relative;
+	background: linear-gradient(midnightblue, navy);
+	color: #202020;
+}
+.contact-title {
+	position: relative;
+	text-align: center;
+	font-family: 'Montserrat', cursive;
+	font-size: 6em;
+	padding: 3%;
+	font-weight: bold;
+	color: white;
+}
+.contact-body {
+	display: flex;
+    padding: 10%;
+    padding-top: 0;
+    justify-content: space-evenly;
+}
