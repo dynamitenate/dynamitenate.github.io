@@ -65,12 +65,12 @@ html, body {
 	line-height: 1.5;
 	filter: drop-shadow(2px 4px 6px black);
 }
-.contact-section {
+.work-section {
 	position: relative;
 	background: linear-gradient(white, lightgrey);
 	color: #202020;
 }
-.contact-title {
+.work-title {
 	position: relative;
 	text-align: center;
 	font-family: 'Montserrat', cursive;
@@ -78,9 +78,48 @@ html, body {
 	padding: 3%;
 	font-weight: bold;
 }
-.contact-body {
-	display: flex;
-    padding: 10%;
+.work-body {
+    padding: 3% 10%;
     padding-top: 0;
-    justify-content: space-evenly;
+}
+.work-icon-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+}
+.work-icon {
+	height: 120px;
+	width: 120px;
+	margin: 15px;
+	background-size: cover;
+	border-radius: 50%;
+	box-shadow: 0px 0px 10px 5px lightgrey;
+	transition: all 0.1s;
+}
+.work-icon:hover {
+	height: 150px;
+	width: 150px;
+	margin: 15px;
+	box-shadow: 0px 0px 20px 10px lightgrey;
+}
+.work-icon.active {
+	height: 150px;
+	width: 150px;
+	margin: 15px;
+	box-shadow: 0px 0px 20px 10px lightgrey;
+}
+.work-text-row {
+	height: 100px;
+	font-size: 50px;
+	margin-top: 20px;
+	text-align: center;
+}
+.work-text {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+.work-text.active {
+	opacity: 1;
 }
