@@ -79,7 +79,7 @@ html, body {
 	font-weight: bold;
 }
 .work-body {
-    padding: 3% 10%;
+    padding: 3% 20%;
     padding-top: 0;
 }
 .work-icon-row {
@@ -116,7 +116,7 @@ html, body {
 }
 .work-text {
 	position: absolute;
-	padding-right: 10%;
+	padding-right: 20%;
 	opacity: 0;
 	transition: opacity 0.2s;
 	text-align: justify;
