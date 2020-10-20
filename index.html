@@ -65,50 +65,61 @@
 	<section class="aboutme-section">
 		<div class="aboutme-title">About me</div>
 		<div class="aboutme-text">
-			I'm a software engineer currently studying at Purdue University.  I have a spirited passion for front end development but I also enjoy working under the hood.  From my time in the industry I have experience developing a wide range of projects from solo web components to innovative group software applications.
+			I'm a software engineer based in Chicago, IL.  I have a spirited passion for front-end development but I also enjoy working under the hood.  From my time in the industry I have experience developing a wide range of projects from solo web components to innovative group software applications.
 		</div>
 	</section>
-	<section class="purdue-section">
-			<div class="purdue-title">Education</div>
-			<div class="purdue-text">
-				<table>
-					<tr>
-						<td style="padding-right:40px;">
-							<img src="assets/PurdueWhiteSmol.png"></img>
-						</td>
-						<td>
-							<h3>
-								Bachelor of Science, Computer Science<br>
-								Emphasis in Software Engineering<br>
-								Class of 2018
-							</h3>
-						</td>
-					</tr>
-				</table>
-				<hr style="margin-top:2%;">
+	<section class="purdue-section" data-parallax>
+		<div class="purdue-title">Education</div>
+		<div class="purdue-text">
+			<hr style="margin-top:2%;">
+			<table>
+				<tr>
+					<td style="padding-right:40px;">
+						<img src="assets/PurdueWhiteSmol.png"></img>
+					</td>
+					<td>
+						<h3>
+							Bachelor of Science, Computer Science<br>
+							Emphasis in Software Engineering<br>
+							Class of 2018
+						</h3>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</section>
+	<section class="work-section">
+		<div class="work-title">Work Experience</div>
+		<div class="work-body">
+			<div class="work-icon-row">
+				<div id="work-icon-1" class="work-icon active" data-work-text-id="work-text-1" onclick="setWorkActive(this.id)" style="background-image:url(assets/EchelonConsulting.jpg);"></div>
+				<div id="work-icon-2" class="work-icon" data-work-text-id="work-text-2" onclick="setWorkActive(this.id)" style="background-image:url(assets/PurdueP.jpg);"></div>
+				<div id="work-icon-3" class="work-icon" data-work-text-id="work-text-3" onclick="setWorkActive(this.id)" style="background-image:url(assets/MAG.jpg);"></div>
+				<div id="work-icon-4" class="work-icon" data-work-text-id="work-text-4" onclick="setWorkActive(this.id)" style="background-image:url(assets/Stantec.jpg);"></div>
 			</div>
-	</section>
-	<section class="experience-section">
-		<div class="aboutme-title">WORK EXPERIENCE</div>
-		<div class="aboutme-text">
-			<center>
-				<table>
-					<tr>
-						<td style="padding-right:40px;">
-							<img src="assets/EchelonConsultingSmol.jpg" style="border-radius:50%"></img>
-						</td>
-						<td>Echelon Consulting</td>
-					</tr>
-					<tr>
-						<td style="padding-right:40px;">
-							<img src="assets/MAGSmol.jpg" style="border-radius:50%"></img>
-						</td>
-						<td>MAG Automotive</td>
-					</tr>
-				</table>
-			</center>
+			<div class="work-text-row">
+				<div id="work-text-1" class="work-text active">
+					<div class="work-sub-text">Software Engineer</div><br>
+					Working in an agile environment to build and maintain a diverse array of client-based projects.<br>
+					Primarily full-stack web development using React, TypeScript, NodeJS, .NET, SQL, and Azure.<br>
+					Commonly engaging with clients to coordinate development and demo new features.
+				</div>
+				<div id="work-text-2" class="work-text">
+					<div class="work-sub-text">Undergraduate Teaching assistant</div><br>
+					Assisted students in a Sophomore-level C Programming course during weekly labs.<br>
+					Hosted an after-hours help session to tutor students one on one.
+				</div>
+				<div id="work-text-3" class="work-text">
+					<div class="work-sub-text">Software Engineering Intern</div><br>
+					Spearheaded the design and development of a desktop app which works in tandem with 3D CAD software to migrate data for newer versions.<br>
+					Focused on usability so that anyone across the company could use the app with ease.
+				</div>
+				<div id="work-text-4" class="work-text">
+					<div class="work-sub-text">Electrical Engineering Intern</div><br>
+					Used AutoDesk Revit to map electrical and network diagrams and “one-lines” for various school/university buildings
+				</div>
+			</div>
 		</div>
 	</section>
-	<section style="height:1000px;"></section>
 	</body>
 </html>

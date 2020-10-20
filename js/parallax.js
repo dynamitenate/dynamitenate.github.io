@@ -7,7 +7,7 @@ function getDistanceToTop(element) {
 }
 
 function getParallaxObjects() {
-	let parallaxElements = [...document.querySelectorAll('div[data-parallax]')];
+	let parallaxElements = [...document.querySelectorAll('*[data-parallax]')];
 	let promises = parallaxElements.map(element => getParallaxElement(element));
 	return Promise.all(promises);
 }
